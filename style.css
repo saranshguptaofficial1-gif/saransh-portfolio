@@ -1,0 +1,485 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: #080808;
+    color: #f4f1ea;
+
+    font-family: "Inter", sans-serif;
+
+    overflow-x: hidden;
+}
+
+
+/* =========================
+   NAVIGATION
+========================= */
+
+.navbar {
+    height: 76px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 0 5%;
+
+    border-bottom: 1px solid #222;
+}
+
+.logo {
+    color: #f4f1ea;
+
+    text-decoration: none;
+
+    font-family: "Barlow Condensed", sans-serif;
+
+    font-size: 20px;
+    font-weight: 600;
+
+    letter-spacing: 0.5px;
+
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.dot {
+    width: 8px;
+    height: 8px;
+
+    background: #ff3b30;
+
+    border-radius: 50%;
+}
+
+nav {
+    display: flex;
+    gap: 32px;
+}
+
+nav a {
+    color: #aaa;
+
+    text-decoration: none;
+
+    font-size: 11px;
+    font-weight: 500;
+
+    letter-spacing: 1.5px;
+
+    transition: 0.3s;
+}
+
+nav a:hover {
+    color: #ff3b30;
+}
+
+
+/* =========================
+   HERO
+========================= */
+
+.hero {
+    min-height: 630px;
+
+    display: grid;
+
+    grid-template-columns: 58% 42%;
+
+    position: relative;
+
+    border-bottom: 1px solid #222;
+}
+
+.hero-content {
+    padding: 80px 0 70px 5%;
+
+    position: relative;
+
+    z-index: 2;
+}
+
+.eyebrow {
+    font-size: 10px;
+
+    letter-spacing: 2px;
+
+    color: #999;
+
+    display: flex;
+    align-items: center;
+
+    gap: 12px;
+
+    margin-bottom: 18px;
+}
+
+.eyebrow > span:first-child {
+    width: 28px;
+    height: 2px;
+
+    background: #ff3b30;
+
+    display: inline-block;
+}
+
+.separator {
+    color: #ff3b30;
+}
+
+
+/* =========================
+   MAIN HEADING
+========================= */
+
+h1 {
+    font-family: "Barlow Condensed", sans-serif;
+
+    font-size: clamp(80px, 9vw, 145px);
+
+    line-height: 0.82;
+
+    font-weight: 500;
+
+    letter-spacing: -3px;
+
+    text-transform: uppercase;
+
+    max-width: 850px;
+}
+
+h1 em {
+    color: #ff3b30;
+
+    font-style: normal;
+
+    font-weight: 500;
+}
+
+.intro {
+    max-width: 520px;
+
+    margin-top: 32px;
+
+    color: #999;
+
+    font-size: 15px;
+
+    line-height: 1.7;
+}
+
+
+/* =========================
+   BUTTONS
+========================= */
+
+.buttons {
+    display: flex;
+
+    gap: 12px;
+
+    margin-top: 30px;
+}
+
+.primary-btn,
+.secondary-btn {
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    height: 46px;
+
+    padding: 0 24px;
+
+    border-radius: 30px;
+
+    text-decoration: none;
+
+    font-size: 11px;
+
+    font-weight: 600;
+
+    letter-spacing: 1.5px;
+
+    transition: 0.3s;
+}
+
+.primary-btn {
+    background: #ff3b30;
+
+    color: #080808;
+}
+
+.primary-btn:hover {
+    transform: translateY(-3px);
+
+    background: #ff5148;
+}
+
+.secondary-btn {
+    border: 1px solid #333;
+
+    color: #f4f1ea;
+}
+
+.secondary-btn:hover {
+    border-color: #f4f1ea;
+}
+
+
+/* =========================
+   IMAGE
+========================= */
+
+.hero-image {
+    position: relative;
+
+    overflow: hidden;
+
+    background: #111;
+}
+
+.hero-image img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    filter: grayscale(100%) contrast(1.05);
+
+    opacity: 0.75;
+}
+
+
+/* =========================
+   STATS
+========================= */
+
+.stats {
+    min-height: 190px;
+
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    align-items: center;
+
+    padding: 0 5%;
+}
+
+.stat {
+    text-align: center;
+
+    border-right: 1px solid #222;
+}
+
+.stat:last-child {
+    border-right: none;
+}
+
+.stat strong {
+    display: block;
+
+    font-family: "Barlow Condensed", sans-serif;
+
+    font-size: 80px;
+
+    line-height: 0.8;
+
+    font-weight: 500;
+}
+
+.stat strong span {
+    color: #ff3b30;
+}
+
+.stat small {
+    display: block;
+
+    margin-top: 15px;
+
+    color: #777;
+
+    font-size: 9px;
+
+    letter-spacing: 2px;
+}
+
+
+/* =========================
+   OTHER SECTIONS
+========================= */
+
+.simple-section {
+    min-height: 500px;
+
+    padding: 100px 5%;
+
+    border-top: 1px solid #222;
+}
+
+.section-label {
+    color: #ff3b30;
+
+    font-size: 10px;
+
+    letter-spacing: 2px;
+
+    margin-bottom: 30px;
+}
+
+.simple-section h2 {
+    font-family: "Barlow Condensed", sans-serif;
+
+    font-size: clamp(60px, 9vw, 130px);
+
+    font-weight: 500;
+
+    line-height: 0.85;
+
+    text-transform: uppercase;
+}
+
+.simple-section p {
+    max-width: 600px;
+
+    color: #999;
+
+    font-size: 16px;
+
+    line-height: 1.7;
+
+    margin-top: 30px;
+}
+
+
+/* =========================
+   CONTACT
+========================= */
+
+.contact-buttons {
+    display: flex;
+
+    gap: 15px;
+
+    margin-top: 40px;
+}
+
+.contact-buttons a {
+    border: 1px solid #333;
+
+    color: #f4f1ea;
+
+    padding: 16px 25px;
+
+    text-decoration: none;
+
+    font-size: 11px;
+
+    letter-spacing: 1.5px;
+
+    transition: 0.3s;
+}
+
+.contact-buttons a:hover {
+    background: #ff3b30;
+
+    border-color: #ff3b30;
+
+    color: #080808;
+}
+
+
+/* =========================
+   FOOTER
+========================= */
+
+footer {
+    padding: 30px 5%;
+
+    border-top: 1px solid #222;
+
+    color: #555;
+
+    font-size: 9px;
+
+    letter-spacing: 1.5px;
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 800px) {
+
+    .navbar {
+        height: 65px;
+
+        padding: 0 6%;
+    }
+
+    nav {
+        gap: 15px;
+    }
+
+    nav a {
+        font-size: 9px;
+    }
+
+    .hero {
+        display: block;
+
+        min-height: auto;
+    }
+
+    .hero-content {
+        padding: 55px 6% 50px;
+    }
+
+    h1 {
+        font-size: clamp(60px, 17vw, 100px);
+
+        letter-spacing: -1.5px;
+    }
+
+    .intro {
+        font-size: 14px;
+    }
+
+    .hero-image {
+        height: 350px;
+    }
+
+    .stats {
+        min-height: 150px;
+
+        padding: 30px 4%;
+    }
+
+    .stat strong {
+        font-size: 55px;
+    }
+
+    .stat small {
+        font-size: 7px;
+    }
+
+    .simple-section {
+        padding: 70px 6%;
+    }
+
+    .simple-section h2 {
+        font-size: 75px;
+    }
+
+}
