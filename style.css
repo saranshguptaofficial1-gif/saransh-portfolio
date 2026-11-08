@@ -260,10 +260,11 @@ h1 em {
 
 .contact-info h2 {
     font-family: "Barlow Condensed", sans-serif;
-    font-size: clamp(60px, 9vw, 130px);
+    font-size: clamp(62px, 7vw, 105px);
     font-weight: 500;
-    line-height: 0.85;
-    letter-spacing: -3px;
+    line-height: 0.9;
+    letter-spacing: -2px;
+    white-space: nowrap;
     text-transform: uppercase;
 }
 
