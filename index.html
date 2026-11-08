@@ -71,16 +71,16 @@
 </section>
 
 <section class="stats">
-    <div class="stat">
-        <strong>100<span>+</span></strong>
+    <div class="stat" aria-label="100 plus projects">
+        <strong><span class="stat-number" data-target="100" aria-hidden="true">100</span><span>+</span></strong>
         <small>PROJECTS</small>
     </div>
-    <div class="stat">
-        <strong>150<span>+</span></strong>
+    <div class="stat" aria-label="150 plus reels and videos">
+        <strong><span class="stat-number" data-target="150" aria-hidden="true">150</span><span>+</span></strong>
         <small>REELS & VIDEOS</small>
     </div>
-    <div class="stat">
-        <strong>15<span>+</span></strong>
+    <div class="stat" aria-label="15 plus brands and creators">
+        <strong><span class="stat-number" data-target="15" aria-hidden="true">15</span><span>+</span></strong>
         <small>BRANDS & CREATORS</small>
     </div>
 </section>
@@ -251,6 +251,45 @@
             menuToggle.setAttribute("aria-label", "Open navigation menu");
         }
     });
+
+    // Count the portfolio statistics up once when the stats section enters view.
+    const statsSection = document.querySelector(".stats");
+    const statNumbers = document.querySelectorAll(".stat-number");
+    const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+    if (statsSection && statNumbers.length && !prefersReducedMotion) {
+        const runCountUp = (element) => {
+            const target = Number(element.dataset.target);
+            const duration = 1600;
+            const startTime = performance.now();
+
+            const updateCount = (currentTime) => {
+                const progress = Math.min((currentTime - startTime) / duration, 1);
+                const easedProgress = 1 - Math.pow(1 - progress, 4);
+                element.textContent = Math.round(target * easedProgress);
+
+                if (progress < 1) {
+                    requestAnimationFrame(updateCount);
+                } else {
+                    element.textContent = target;
+                }
+            };
+
+            element.textContent = "0";
+            requestAnimationFrame(updateCount);
+        };
+
+        const statsObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    statNumbers.forEach(runCountUp);
+                    observer.disconnect();
+                }
+            });
+        }, { threshold: 0.35 });
+
+        statsObserver.observe(statsSection);
+    }
 
     // Submit the contact form without sending visitors away from the portfolio.
     const contactForm = document.querySelector("#contactForm");
