@@ -109,7 +109,7 @@
         </a>
     </div>
 
-    <form id="contactForm" class="contact-form">
+    <form id="contactForm" class="contact-form" action="https://formspree.io/f/mnppyewe" method="POST">
         <div class="form-row">
             <input type="text" id="name" name="name" placeholder="Name" required>
             <input type="email" id="email" name="email" placeholder="Email" required>
@@ -135,30 +135,6 @@
     © 2026 SARANSH GUPTA — FREELANCE VIDEO EDITOR
 </footer>
 
-<script>
-document.getElementById("contactForm").addEventListener("submit", function (event) {
-    event.preventDefault();
-
-    const name = document.getElementById("name").value.trim();
-    const email = document.getElementById("email").value.trim();
-    const phone = document.getElementById("phone").value.trim();
-    const address = document.getElementById("address").value.trim();
-    const subject = document.getElementById("subject").value.trim();
-    const message = document.getElementById("message").value.trim();
-
-    const body =
-        "Name: " + name + "\n" +
-        "Email: " + email + "\n" +
-        "Phone: " + phone + "\n" +
-        "Address: " + address + "\n\n" +
-        "Message:\n" + message;
-
-    window.location.href =
-        "mailto:Saranshguptaofficial1@gmail.com" +
-        "?subject=" + encodeURIComponent(subject) +
-        "&body=" + encodeURIComponent(body);
-});
-</script>
 
 </body>
 </html>
