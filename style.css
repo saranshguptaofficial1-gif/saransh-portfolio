@@ -300,21 +300,32 @@ h1 em {
 }
 
 .brand-logo {
-    flex: 0 0 210px;
-    height: 105px;
-    padding: 18px 30px;
+    flex: 0 0 250px;
+    height: 132px;
+    padding: 14px 28px;
     display: flex;
     align-items: center;
     justify-content: center;
+    background: transparent;
 }
 
 .brand-logo img {
     display: block;
-    max-width: 100%;
-    max-height: 68px;
     width: auto;
     height: auto;
+    max-width: 100%;
+    max-height: 96px;
     object-fit: contain;
+    object-position: center;
+    background: transparent;
+    filter: brightness(1.12) contrast(1.08);
+    mix-blend-mode: screen;
+    transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.brand-logo:hover img {
+    transform: scale(1.08);
+    filter: brightness(1.22) contrast(1.12);
 }
 
 @keyframes brands-scroll {
