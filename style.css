@@ -9,8 +9,8 @@ html {
 }
 
 body {
-    background: #080808;
-    color: #f4f1ea;
+    background: #101010;
+    color: #ffffff;
     font-family: "Inter", sans-serif;
     overflow-x: hidden;
 }
@@ -21,11 +21,11 @@ body {
     align-items: center;
     justify-content: space-between;
     padding: 0 5%;
-    border-bottom: 1px solid #222;
+    border-bottom: 1px solid #292929;
 }
 
 .logo {
-    color: #f4f1ea;
+    color: #ffffff;
     text-decoration: none;
     font-family: "Barlow Condensed", sans-serif;
     font-size: 20px;
@@ -39,7 +39,7 @@ body {
 .dot {
     width: 8px;
     height: 8px;
-    background: #ff3b30;
+    background: #d6d6d6;
     border-radius: 50%;
 }
 
@@ -64,20 +64,20 @@ nav a {
 }
 
 nav a:hover {
-    color: #ff3b30;
+    color: #d6d6d6;
 }
 
 nav a.resume-nav {
-    color: #080808;
-    background: #ff3b30;
+    color: #101010;
+    background: #d6d6d6;
     padding: 10px 13px;
     border-radius: 22px;
     white-space: nowrap;
 }
 
 nav a.resume-nav:hover {
-    color: #080808;
-    background: #ff5148;
+    color: #101010;
+    background: #ffffff;
 }
 
 .hero {
@@ -85,7 +85,7 @@ nav a.resume-nav:hover {
     display: grid;
     grid-template-columns: 58% 42%;
     position: relative;
-    border-bottom: 1px solid #222;
+    border-bottom: 1px solid #292929;
 }
 
 .hero-content {
@@ -107,12 +107,12 @@ nav a.resume-nav:hover {
 .eyebrow > span:first-child {
     width: 28px;
     height: 2px;
-    background: #ff3b30;
+    background: #d6d6d6;
     display: inline-block;
 }
 
 .separator {
-    color: #ff3b30;
+    color: #d6d6d6;
 }
 
 h1 {
@@ -126,7 +126,7 @@ h1 {
 }
 
 h1 em {
-    color: #ff3b30;
+    color: #d6d6d6;
     font-style: normal;
     font-weight: 500;
 }
@@ -161,28 +161,28 @@ h1 em {
 }
 
 .primary-btn {
-    background: #ff3b30;
-    color: #080808;
+    background: #d6d6d6;
+    color: #101010;
 }
 
 .primary-btn:hover {
     transform: translateY(-3px);
-    background: #ff5148;
+    background: #ffffff;
 }
 
 .secondary-btn {
-    border: 1px solid #333;
-    color: #f4f1ea;
+    border: 1px solid #3a3a3a;
+    color: #ffffff;
 }
 
 .secondary-btn:hover {
-    border-color: #f4f1ea;
+    border-color: #ffffff;
 }
 
 .hero-image {
     position: relative;
     overflow: hidden;
-    background: #111;
+    background: #171717;
 }
 
 .hero-image img {
@@ -203,7 +203,7 @@ h1 em {
 
 .stat {
     text-align: center;
-    border-right: 1px solid #222;
+    border-right: 1px solid #292929;
 }
 
 .stat:last-child {
@@ -219,7 +219,7 @@ h1 em {
 }
 
 .stat strong span {
-    color: #ff3b30;
+    color: #d6d6d6;
 }
 
 .stat small {
@@ -233,11 +233,11 @@ h1 em {
 .simple-section {
     min-height: 500px;
     padding: 100px 5%;
-    border-top: 1px solid #222;
+    border-top: 1px solid #292929;
 }
 
 .section-label {
-    color: #ff3b30;
+    color: #d6d6d6;
     font-size: 10px;
     letter-spacing: 2px;
     margin-bottom: 30px;
@@ -266,7 +266,7 @@ h1 em {
 
 .about-section {
     padding: 110px 5% 120px;
-    border-top: 1px solid #222;
+    border-top: 1px solid #292929;
     display: grid;
     grid-template-columns: 0.9fr 1.1fr;
     gap: clamp(55px, 9vw, 145px);
@@ -299,7 +299,7 @@ h1 em {
 }
 
 .about-heading h2 em {
-    color: #ff3b30;
+    color: #d6d6d6;
     font-style: normal;
 }
 
@@ -316,14 +316,14 @@ h1 em {
 }
 
 .about-content .about-lead {
-    color: #f4f1ea;
+    color: #ffffff;
     font-size: clamp(18px, 2vw, 23px);
     line-height: 1.65;
     margin-bottom: 28px;
 }
 
 .about-content .about-signoff {
-    color: #f4f1ea;
+    color: #ffffff;
     font-size: 17px;
     font-weight: 500;
     margin-top: 34px;
@@ -337,7 +337,7 @@ h1 em {
 }
 
 .about-tags span {
-    border: 1px solid #303030;
+    border: 1px solid #3a3a3a;
     border-radius: 30px;
     padding: 10px 14px;
     color: #aaa;
@@ -351,8 +351,8 @@ h1 em {
     gap: 24px;
     margin-top: 38px;
     padding-bottom: 10px;
-    border-bottom: 1px solid #ff3b30;
-    color: #f4f1ea;
+    border-bottom: 1px solid #d6d6d6;
+    color: #ffffff;
     text-decoration: none;
     font-size: 10px;
     font-weight: 600;
@@ -361,12 +361,12 @@ h1 em {
 }
 
 .about-cta span {
-    color: #ff3b30;
+    color: #d6d6d6;
     font-size: 18px;
 }
 
 .about-cta:hover {
-    color: #ff3b30;
+    color: #d6d6d6;
 }
 
 /* =========================
@@ -376,7 +376,7 @@ h1 em {
 .contact-section {
     min-height: 600px;
     padding: 88px 5%;
-    border-top: 1px solid #222;
+    border-top: 1px solid #292929;
     display: grid;
     grid-template-columns: minmax(300px, 0.8fr) minmax(460px, 1.2fr);
     align-items: start;
@@ -406,23 +406,23 @@ h1 em {
 .contact-email {
     display: inline-block;
     margin-top: 22px;
-    color: #f4f1ea;
+    color: #ffffff;
     font-size: 14px;
     font-weight: 600;
     text-decoration: none;
 }
 
 .contact-email:hover {
-    color: #ff3b30;
+    color: #d6d6d6;
 }
 
 .resume-download {
     display: table;
     margin-top: 22px;
     padding: 13px 20px;
-    border: 1px solid #ff3b30;
+    border: 1px solid #d6d6d6;
     border-radius: 24px;
-    color: #ff3b30;
+    color: #d6d6d6;
     font-size: 10px;
     font-weight: 600;
     letter-spacing: 1.4px;
@@ -431,8 +431,8 @@ h1 em {
 }
 
 .resume-download:hover {
-    background: #ff3b30;
-    color: #080808;
+    background: #d6d6d6;
+    color: #101010;
 }
 
 .contact-form {
@@ -455,7 +455,7 @@ h1 em {
     border-bottom: 1px solid #3a3a3a;
     border-radius: 0;
     outline: none;
-    color: #f4f1ea;
+    color: #ffffff;
     font-family: "Inter", sans-serif;
     font-size: 13px;
     padding: 13px 10px 12px;
@@ -470,7 +470,7 @@ h1 em {
 
 .contact-form input:focus,
 .contact-form textarea:focus {
-    border-bottom-color: #ff3b30;
+    border-bottom-color: #d6d6d6;
 }
 
 .contact-form textarea {
@@ -485,8 +485,8 @@ h1 em {
     height: 48px;
     margin-top: 18px;
     border: 0;
-    background: #f4f1ea;
-    color: #080808;
+    background: #ffffff;
+    color: #101010;
     font-family: "Inter", sans-serif;
     font-size: 11px;
     font-weight: 600;
@@ -496,7 +496,7 @@ h1 em {
 }
 
 .contact-form button:hover {
-    background: #ff3b30;
+    background: #d6d6d6;
 }
 
  /* =========================
@@ -505,7 +505,7 @@ h1 em {
 
 footer {
     padding: 30px 5%;
-    border-top: 1px solid #222;
+    border-top: 1px solid #292929;
     color: #555;
     font-size: 9px;
     letter-spacing: 1.5px;
