@@ -260,10 +260,10 @@ h1 em {
 
 .contact-info h2 {
     font-family: "Barlow Condensed", sans-serif;
-    font-size: clamp(76px, 8vw, 112px);
+    font-size: clamp(60px, 9vw, 130px);
     font-weight: 500;
-    line-height: 0.82;
-    letter-spacing: -2px;
+    line-height: 0.85;
+    letter-spacing: -3px;
     text-transform: uppercase;
 }
 
@@ -425,7 +425,7 @@ footer {
     }
 
     .contact-info h2 {
-        font-size: clamp(72px, 20vw, 95px);
+        font-size: clamp(60px, 17vw, 100px);
     }
 
     .contact-form {
