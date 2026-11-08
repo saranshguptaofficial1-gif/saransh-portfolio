@@ -291,7 +291,7 @@ h1 em {
     display: flex;
     align-items: center;
     width: max-content;
-    animation: brands-scroll 42s linear infinite;
+    animation: brands-scroll 22s linear infinite;
     will-change: transform;
 }
 
