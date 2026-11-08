@@ -333,6 +333,55 @@ h1 em {
     margin-top: 34px;
 }
 
+.about-approach {
+    margin: 38px 0 34px;
+    padding: 24px 0 26px;
+    border-top: 1px solid #292C26;
+    border-bottom: 1px solid #292C26;
+}
+
+.about-approach-heading,
+.about-specialties-label {
+    color: #C5F467;
+    font-size: 9px;
+    font-weight: 600;
+    letter-spacing: 1.8px;
+}
+
+.approach-steps {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 22px;
+    margin-top: 23px;
+}
+
+.approach-step span {
+    display: block;
+    color: #92958A;
+    font-size: 10px;
+    letter-spacing: 1px;
+    margin-bottom: 12px;
+}
+
+.approach-step h3 {
+    color: #F5F5EF;
+    font-family: "Barlow Condensed", sans-serif;
+    font-size: 25px;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+}
+
+.approach-step p {
+    margin: 7px 0 0;
+    color: #92958A;
+    font-size: 11px;
+    line-height: 1.7;
+}
+
+.about-specialties-label {
+    margin-bottom: 15px;
+}
+
 .about-tags {
     display: flex;
     flex-wrap: wrap;
@@ -674,6 +723,24 @@ footer {
 
     .about-content .about-lead {
         font-size: 18px;
+    }
+
+    .about-approach {
+        margin: 30px 0;
+        padding: 22px 0;
+    }
+
+    .approach-steps {
+        gap: 14px;
+    }
+
+    .approach-step h3 {
+        font-size: 22px;
+    }
+
+    .approach-step p {
+        font-size: 10px;
+        line-height: 1.6;
     }
 
     .about-tags {
