@@ -591,9 +591,9 @@ h1 em {
 ========================= */
 
 .site-footer {
-    min-height: 88px;
-    padding: 25px 5%;
-    border-top: 1px solid #292C26;
+    min-height: 104px;
+    padding: 28px 5%;
+    border-top: 1px solid #3A3D35;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -601,33 +601,53 @@ h1 em {
 }
 
 .footer-credit {
-    color: #6F7269;
-    font-size: 9px;
-    letter-spacing: 1.5px;
+    color: #B5B7AD;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 1.3px;
     line-height: 1.7;
 }
 
 .footer-links {
     display: flex;
     align-items: center;
-    gap: 28px;
+    gap: 14px;
 }
 
 .footer-links a {
-    color: #B5B7AD;
-    font-size: 9px;
-    font-weight: 600;
-    letter-spacing: 1.4px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 44px;
+    padding: 0 18px;
+    border: 1px solid #C5F467;
+    border-radius: 24px;
+    background: #C5F467;
+    color: #10110F;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1.2px;
     text-decoration: none;
-    transition: color 0.25s ease;
+    white-space: nowrap;
+    transition: background 0.25s ease, color 0.25s ease, transform 0.25s ease;
 }
 
 .footer-links a:hover {
-    color: #C5F467;
+    background: #F5F5EF;
+    border-color: #F5F5EF;
+    color: #10110F;
+    transform: translateY(-2px);
 }
 
 .footer-links .back-to-top {
+    background: transparent;
     color: #C5F467;
+}
+
+.footer-links .back-to-top:hover {
+    background: #C5F467;
+    border-color: #C5F467;
+    color: #10110F;
 }
 
 @media (max-width: 800px) {
@@ -845,13 +865,24 @@ h1 em {
     .site-footer {
         align-items: flex-start;
         flex-direction: column;
-        gap: 18px;
-        padding: 25px 6%;
+        gap: 20px;
+        padding: 28px 6%;
+    }
+
+    .footer-credit {
+        font-size: 10px;
     }
 
     .footer-links {
         width: 100%;
-        justify-content: space-between;
-        gap: 18px;
+        justify-content: flex-start;
+        flex-wrap: wrap;
+        gap: 12px;
+    }
+
+    .footer-links a {
+        min-height: 46px;
+        padding: 0 16px;
+        font-size: 11px;
     }
 }
