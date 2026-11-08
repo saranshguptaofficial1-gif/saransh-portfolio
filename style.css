@@ -263,6 +263,71 @@ h1 em {
     margin-top: 30px;
 }
 
+.brands-strip {
+    margin-top: 105px;
+    overflow: hidden;
+}
+
+.brands-heading {
+    margin-bottom: 25px;
+    color: #92958A;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 2.2px;
+}
+
+.brands-marquee {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+    padding: 18px 0;
+    border-top: 1px solid #292C26;
+    border-bottom: 1px solid #292C26;
+    -webkit-mask-image: linear-gradient(to right, transparent, #000 5%, #000 95%, transparent);
+    mask-image: linear-gradient(to right, transparent, #000 5%, #000 95%, transparent);
+}
+
+.brands-track {
+    display: flex;
+    align-items: center;
+    width: max-content;
+    animation: brands-scroll 42s linear infinite;
+    will-change: transform;
+}
+
+.brands-marquee:hover .brands-track {
+    animation-play-state: paused;
+}
+
+.brand-logo {
+    flex: 0 0 210px;
+    height: 105px;
+    padding: 18px 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.brand-logo img {
+    display: block;
+    max-width: 100%;
+    max-height: 68px;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+}
+
+@keyframes brands-scroll {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .brands-track {
+        animation: none;
+    }
+}
+
 
 /* =========================
    ABOUT
