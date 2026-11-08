@@ -9,8 +9,8 @@ html {
 }
 
 body {
-    background: #101010;
-    color: #ffffff;
+    background: #10110F;
+    color: #F5F5EF;
     font-family: "Inter", sans-serif;
     overflow-x: hidden;
 }
@@ -21,11 +21,11 @@ body {
     align-items: center;
     justify-content: space-between;
     padding: 0 5%;
-    border-bottom: 1px solid #292929;
+    border-bottom: 1px solid #292C26;
 }
 
 .logo {
-    color: #ffffff;
+    color: #F5F5EF;
     text-decoration: none;
     font-family: "Barlow Condensed", sans-serif;
     font-size: 20px;
@@ -39,7 +39,7 @@ body {
 .dot {
     width: 8px;
     height: 8px;
-    background: #d6d6d6;
+    background: #C5F467;
     border-radius: 50%;
 }
 
@@ -54,7 +54,7 @@ nav a {
     align-items: center;
     justify-content: center;
     min-height: 36px;
-    color: #aaa;
+    color: #B5B7AD;
     text-decoration: none;
     font-size: 11px;
     font-weight: 500;
@@ -64,20 +64,20 @@ nav a {
 }
 
 nav a:hover {
-    color: #d6d6d6;
+    color: #C5F467;
 }
 
 nav a.resume-nav {
-    color: #101010;
-    background: #d6d6d6;
+    color: #10110F;
+    background: #C5F467;
     padding: 10px 13px;
     border-radius: 22px;
     white-space: nowrap;
 }
 
 nav a.resume-nav:hover {
-    color: #101010;
-    background: #ffffff;
+    color: #10110F;
+    background: #F5F5EF;
 }
 
 .hero {
@@ -85,7 +85,7 @@ nav a.resume-nav:hover {
     display: grid;
     grid-template-columns: 58% 42%;
     position: relative;
-    border-bottom: 1px solid #292929;
+    border-bottom: 1px solid #292C26;
 }
 
 .hero-content {
@@ -97,7 +97,7 @@ nav a.resume-nav:hover {
 .eyebrow {
     font-size: 10px;
     letter-spacing: 2px;
-    color: #999;
+    color: #92958A;
     display: flex;
     align-items: center;
     gap: 12px;
@@ -107,12 +107,12 @@ nav a.resume-nav:hover {
 .eyebrow > span:first-child {
     width: 28px;
     height: 2px;
-    background: #d6d6d6;
+    background: #C5F467;
     display: inline-block;
 }
 
 .separator {
-    color: #d6d6d6;
+    color: #C5F467;
 }
 
 h1 {
@@ -126,7 +126,7 @@ h1 {
 }
 
 h1 em {
-    color: #d6d6d6;
+    color: #C5F467;
     font-style: normal;
     font-weight: 500;
 }
@@ -134,7 +134,7 @@ h1 em {
 .intro {
     max-width: 520px;
     margin-top: 32px;
-    color: #999;
+    color: #92958A;
     font-size: 15px;
     line-height: 1.7;
 }
@@ -161,28 +161,28 @@ h1 em {
 }
 
 .primary-btn {
-    background: #d6d6d6;
-    color: #101010;
+    background: #C5F467;
+    color: #10110F;
 }
 
 .primary-btn:hover {
     transform: translateY(-3px);
-    background: #ffffff;
+    background: #F5F5EF;
 }
 
 .secondary-btn {
-    border: 1px solid #3a3a3a;
-    color: #ffffff;
+    border: 1px solid #3A3D35;
+    color: #F5F5EF;
 }
 
 .secondary-btn:hover {
-    border-color: #ffffff;
+    border-color: #F5F5EF;
 }
 
 .hero-image {
     position: relative;
     overflow: hidden;
-    background: #171717;
+    background: #20221E;
 }
 
 .hero-image img {
@@ -203,7 +203,7 @@ h1 em {
 
 .stat {
     text-align: center;
-    border-right: 1px solid #292929;
+    border-right: 1px solid #292C26;
 }
 
 .stat:last-child {
@@ -219,13 +219,13 @@ h1 em {
 }
 
 .stat strong span {
-    color: #d6d6d6;
+    color: #C5F467;
 }
 
 .stat small {
     display: block;
     margin-top: 15px;
-    color: #777;
+    color: #92958A;
     font-size: 9px;
     letter-spacing: 2px;
 }
@@ -233,11 +233,11 @@ h1 em {
 .simple-section {
     min-height: 500px;
     padding: 100px 5%;
-    border-top: 1px solid #292929;
+    border-top: 1px solid #292C26;
 }
 
 .section-label {
-    color: #d6d6d6;
+    color: #C5F467;
     font-size: 10px;
     letter-spacing: 2px;
     margin-bottom: 30px;
@@ -253,7 +253,7 @@ h1 em {
 
 .simple-section p {
     max-width: 600px;
-    color: #999;
+    color: #92958A;
     font-size: 16px;
     line-height: 1.7;
     margin-top: 30px;
@@ -266,7 +266,7 @@ h1 em {
 
 .about-section {
     padding: 110px 5% 120px;
-    border-top: 1px solid #292929;
+    border-top: 1px solid #292C26;
     display: grid;
     grid-template-columns: 0.9fr 1.1fr;
     gap: clamp(55px, 9vw, 145px);
@@ -284,7 +284,7 @@ h1 em {
 }
 
 .about-kicker {
-    color: #888;
+    color: #92958A;
     font-size: 10px;
     letter-spacing: 2.5px;
     margin-bottom: 18px;
@@ -299,7 +299,7 @@ h1 em {
 }
 
 .about-heading h2 em {
-    color: #d6d6d6;
+    color: #C5F467;
     font-style: normal;
 }
 
@@ -309,21 +309,21 @@ h1 em {
 }
 
 .about-content p {
-    color: #999;
+    color: #92958A;
     font-size: 14px;
     line-height: 1.95;
     margin-bottom: 22px;
 }
 
 .about-content .about-lead {
-    color: #ffffff;
+    color: #F5F5EF;
     font-size: clamp(18px, 2vw, 23px);
     line-height: 1.65;
     margin-bottom: 28px;
 }
 
 .about-content .about-signoff {
-    color: #ffffff;
+    color: #F5F5EF;
     font-size: 17px;
     font-weight: 500;
     margin-top: 34px;
@@ -337,10 +337,10 @@ h1 em {
 }
 
 .about-tags span {
-    border: 1px solid #3a3a3a;
+    border: 1px solid #3A3D35;
     border-radius: 30px;
     padding: 10px 14px;
-    color: #aaa;
+    color: #B5B7AD;
     font-size: 9px;
     letter-spacing: 1.2px;
 }
@@ -351,8 +351,8 @@ h1 em {
     gap: 24px;
     margin-top: 38px;
     padding-bottom: 10px;
-    border-bottom: 1px solid #d6d6d6;
-    color: #ffffff;
+    border-bottom: 1px solid #C5F467;
+    color: #F5F5EF;
     text-decoration: none;
     font-size: 10px;
     font-weight: 600;
@@ -361,12 +361,12 @@ h1 em {
 }
 
 .about-cta span {
-    color: #d6d6d6;
+    color: #C5F467;
     font-size: 18px;
 }
 
 .about-cta:hover {
-    color: #d6d6d6;
+    color: #C5F467;
 }
 
 /* =========================
@@ -376,7 +376,7 @@ h1 em {
 .contact-section {
     min-height: 600px;
     padding: 88px 5%;
-    border-top: 1px solid #292929;
+    border-top: 1px solid #292C26;
     display: grid;
     grid-template-columns: minmax(300px, 0.8fr) minmax(460px, 1.2fr);
     align-items: start;
@@ -399,30 +399,30 @@ h1 em {
 
 .contact-location {
     margin-top: 34px;
-    color: #999;
+    color: #92958A;
     font-size: 14px;
 }
 
 .contact-email {
     display: inline-block;
     margin-top: 22px;
-    color: #ffffff;
+    color: #F5F5EF;
     font-size: 14px;
     font-weight: 600;
     text-decoration: none;
 }
 
 .contact-email:hover {
-    color: #d6d6d6;
+    color: #C5F467;
 }
 
 .resume-download {
     display: table;
     margin-top: 22px;
     padding: 13px 20px;
-    border: 1px solid #d6d6d6;
+    border: 1px solid #C5F467;
     border-radius: 24px;
-    color: #d6d6d6;
+    color: #C5F467;
     font-size: 10px;
     font-weight: 600;
     letter-spacing: 1.4px;
@@ -431,8 +431,8 @@ h1 em {
 }
 
 .resume-download:hover {
-    background: #d6d6d6;
-    color: #101010;
+    background: #C5F467;
+    color: #10110F;
 }
 
 .contact-form {
@@ -452,10 +452,10 @@ h1 em {
     width: 100%;
     background: transparent;
     border: 0;
-    border-bottom: 1px solid #3a3a3a;
+    border-bottom: 1px solid #3A3D35;
     border-radius: 0;
     outline: none;
-    color: #ffffff;
+    color: #F5F5EF;
     font-family: "Inter", sans-serif;
     font-size: 13px;
     padding: 13px 10px 12px;
@@ -465,12 +465,12 @@ h1 em {
 
 .contact-form input::placeholder,
 .contact-form textarea::placeholder {
-    color: #8d8d8d;
+    color: #92958A;
 }
 
 .contact-form input:focus,
 .contact-form textarea:focus {
-    border-bottom-color: #d6d6d6;
+    border-bottom-color: #C5F467;
 }
 
 .contact-form textarea {
@@ -485,8 +485,8 @@ h1 em {
     height: 48px;
     margin-top: 18px;
     border: 0;
-    background: #ffffff;
-    color: #101010;
+    background: #F5F5EF;
+    color: #10110F;
     font-family: "Inter", sans-serif;
     font-size: 11px;
     font-weight: 600;
@@ -496,7 +496,7 @@ h1 em {
 }
 
 .contact-form button:hover {
-    background: #d6d6d6;
+    background: #C5F467;
 }
 
  /* =========================
@@ -505,8 +505,8 @@ h1 em {
 
 footer {
     padding: 30px 5%;
-    border-top: 1px solid #292929;
-    color: #555;
+    border-top: 1px solid #292C26;
+    color: #6F7269;
     font-size: 9px;
     letter-spacing: 1.5px;
 }
