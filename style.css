@@ -469,6 +469,28 @@ h1 em {
     color: #C5F467;
 }
 
+.contact-instagram {
+    display: table;
+    margin-top: 16px;
+    padding: 13px 20px;
+    border: 1px solid #C5F467;
+    border-radius: 24px;
+    background: #C5F467;
+    color: #10110F;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1.4px;
+    text-decoration: none;
+    transition: 0.25s ease;
+}
+
+.contact-instagram:hover {
+    background: #F5F5EF;
+    border-color: #F5F5EF;
+    color: #10110F;
+    transform: translateY(-2px);
+}
+
 .resume-download {
     display: table;
     margin-top: 22px;
