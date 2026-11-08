@@ -552,6 +552,40 @@ h1 em {
     background: #C5F467;
 }
 
+.contact-form button:disabled {
+    opacity: 0.65;
+    cursor: wait;
+}
+
+.form-feedback {
+    margin-top: 16px;
+    padding: 15px 17px;
+    border: 1px solid #3A3D35;
+    border-left: 3px solid #C5F467;
+    background: #20221E;
+    color: #F5F5EF;
+    font-size: 12px;
+    line-height: 1.7;
+}
+
+.form-feedback.is-success {
+    border-left-color: #C5F467;
+}
+
+.form-feedback.is-error {
+    border-left-color: #F08A80;
+    color: #F5C2BC;
+}
+
+.form-feedback:focus {
+    outline: 2px solid #C5F467;
+    outline-offset: 3px;
+}
+
+.form-feedback[hidden] {
+    display: none;
+}
+
  /* =========================
    FOOTER
 ========================= */
