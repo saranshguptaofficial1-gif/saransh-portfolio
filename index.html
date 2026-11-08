@@ -6,10 +6,8 @@
 
     <title>Saransh Gupta — Freelance Video Editor</title>
 
-    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
     <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;500;600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="style.css">
@@ -18,7 +16,6 @@
 <body>
 
 <header class="navbar">
-
     <a href="#" class="logo">
         <span class="dot"></span>
         SARANSH GUPTA
@@ -30,16 +27,12 @@
         <a href="#about">ABOUT</a>
         <a href="#contact">CONTACT</a>
     </nav>
-
 </header>
-
 
 <main>
 
 <section class="hero">
-
     <div class="hero-content">
-
         <div class="eyebrow">
             <span></span>
             FREELANCE VIDEO EDITOR
@@ -60,103 +53,115 @@
         </p>
 
         <div class="buttons">
-
-            <a href="#work" class="primary-btn">
-                SEE MY WORK ↗
-            </a>
-
-            <a href="#contact" class="secondary-btn">
-                HIRE ME
-            </a>
-
+            <a href="#work" class="primary-btn">SEE MY WORK ↗</a>
+            <a href="#contact" class="secondary-btn">HIRE ME</a>
         </div>
-
     </div>
 
     <div class="hero-image">
-
-        <!-- Replace this image later -->
         <img src="assets/camera.jpg" alt="Saransh Gupta">
-
     </div>
-
 </section>
 
-
 <section class="stats">
-
     <div class="stat">
         <strong>20<span>+</span></strong>
         <small>PROJECTS</small>
     </div>
-
     <div class="stat">
         <strong>50<span>+</span></strong>
         <small>REELS & VIDEOS</small>
     </div>
-
     <div class="stat">
         <strong>5<span>+</span></strong>
         <small>BRANDS & CREATORS</small>
     </div>
-
 </section>
 
-
 <section id="work" class="simple-section">
-
     <div class="section-label">01 / WORK</div>
-
     <h2>SELECTED WORK</h2>
-
     <p>
         Commercials, reels, motion graphics and visual content.
     </p>
-
 </section>
 
-
 <section id="about" class="simple-section">
-
     <div class="section-label">02 / ABOUT</div>
-
     <h2>ABOUT ME</h2>
-
     <p>
         I'm Saransh Gupta, a freelance video editor based in Delhi,
         India. I work with creators and brands to turn ideas into
         engaging visual stories.
     </p>
-
 </section>
 
+<section id="contact" class="contact-section">
+    <div class="contact-info">
+        <div class="section-label">03 / CONTACT</div>
 
-<section id="contact" class="simple-section contact">
+        <h2>GET IN<br>TOUCH</h2>
 
-    <div class="section-label">03 / CONTACT</div>
+        <p class="contact-location">Delhi — India</p>
 
-    <h2>LET'S WORK<br>TOGETHER.</h2>
-
-    <div class="contact-buttons">
-
-        <a href="mailto:Saranshguptaofficial1@gmail.com">
-            EMAIL ME ↗
+        <a class="contact-email" href="mailto:Saranshguptaofficial1@gmail.com">
+            Saranshguptaofficial1@gmail.com
         </a>
-
-        <a href="https://instagram.com/saransh_mp4">
-            INSTAGRAM ↗
-        </a>
-
     </div>
 
+    <form id="contactForm" class="contact-form">
+        <div class="form-row">
+            <input type="text" id="name" name="name" placeholder="Name" required>
+            <input type="email" id="email" name="email" placeholder="Email" required>
+        </div>
+
+        <div class="form-row">
+            <input type="tel" id="phone" name="phone" placeholder="Phone">
+            <input type="text" id="address" name="address" placeholder="Address">
+        </div>
+
+        <input type="text" id="subject" name="subject" placeholder="Subject" required>
+
+        <textarea id="message" name="message" placeholder="Type your message here..." required></textarea>
+
+        <button type="submit">SUBMIT</button>
+
+        <p class="form-note">
+            Your email app will open with the message ready to send.
+        </p>
+    </form>
 </section>
 
 </main>
 
-
 <footer>
     © 2026 SARANSH GUPTA — FREELANCE VIDEO EDITOR
 </footer>
+
+<script>
+document.getElementById("contactForm").addEventListener("submit", function (event) {
+    event.preventDefault();
+
+    const name = document.getElementById("name").value.trim();
+    const email = document.getElementById("email").value.trim();
+    const phone = document.getElementById("phone").value.trim();
+    const address = document.getElementById("address").value.trim();
+    const subject = document.getElementById("subject").value.trim();
+    const message = document.getElementById("message").value.trim();
+
+    const body =
+        "Name: " + name + "\n" +
+        "Email: " + email + "\n" +
+        "Phone: " + phone + "\n" +
+        "Address: " + address + "\n\n" +
+        "Message:\n" + message;
+
+    window.location.href =
+        "mailto:Saranshguptaofficial1@gmail.com" +
+        "?subject=" + encodeURIComponent(subject) +
+        "&body=" + encodeURIComponent(body);
+});
+</script>
 
 </body>
 </html>
