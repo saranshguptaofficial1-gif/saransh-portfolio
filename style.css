@@ -590,12 +590,44 @@ h1 em {
    FOOTER
 ========================= */
 
-footer {
-    padding: 30px 5%;
+.site-footer {
+    min-height: 88px;
+    padding: 25px 5%;
     border-top: 1px solid #292C26;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+}
+
+.footer-credit {
     color: #6F7269;
     font-size: 9px;
     letter-spacing: 1.5px;
+    line-height: 1.7;
+}
+
+.footer-links {
+    display: flex;
+    align-items: center;
+    gap: 28px;
+}
+
+.footer-links a {
+    color: #B5B7AD;
+    font-size: 9px;
+    font-weight: 600;
+    letter-spacing: 1.4px;
+    text-decoration: none;
+    transition: color 0.25s ease;
+}
+
+.footer-links a:hover {
+    color: #C5F467;
+}
+
+.footer-links .back-to-top {
+    color: #C5F467;
 }
 
 @media (max-width: 800px) {
@@ -808,5 +840,18 @@ footer {
     .contact-form input,
     .contact-form textarea {
         font-size: 14px;
+    }
+
+    .site-footer {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 18px;
+        padding: 25px 6%;
+    }
+
+    .footer-links {
+        width: 100%;
+        justify-content: space-between;
+        gap: 18px;
     }
 }
