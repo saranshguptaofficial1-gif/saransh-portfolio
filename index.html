@@ -21,7 +21,13 @@
         SARANSH GUPTA
     </a>
 
-    <nav>
+    <button class="menu-toggle" type="button" aria-label="Open navigation menu" aria-expanded="false" aria-controls="site-nav">
+        <span></span>
+        <span></span>
+        <span></span>
+    </button>
+
+    <nav id="site-nav" class="site-nav">
         <a href="#">INDEX</a>
         <a href="#work">WORK</a>
         <a href="#about">ABOUT</a>
@@ -163,6 +169,33 @@
     © 2026 SARANSH GUPTA — FREELANCE VIDEO EDITOR
 </footer>
 
+<script>
+    const menuToggle = document.querySelector(".menu-toggle");
+    const siteNav = document.querySelector("#site-nav");
+
+    menuToggle.addEventListener("click", () => {
+        const isOpen = menuToggle.getAttribute("aria-expanded") === "true";
+        menuToggle.setAttribute("aria-expanded", String(!isOpen));
+        menuToggle.setAttribute("aria-label", isOpen ? "Open navigation menu" : "Close navigation menu");
+        siteNav.classList.toggle("is-open", !isOpen);
+    });
+
+    siteNav.querySelectorAll("a").forEach((link) => {
+        link.addEventListener("click", () => {
+            siteNav.classList.remove("is-open");
+            menuToggle.setAttribute("aria-expanded", "false");
+            menuToggle.setAttribute("aria-label", "Open navigation menu");
+        });
+    });
+
+    document.addEventListener("keydown", (event) => {
+        if (event.key === "Escape") {
+            siteNav.classList.remove("is-open");
+            menuToggle.setAttribute("aria-expanded", "false");
+            menuToggle.setAttribute("aria-label", "Open navigation menu");
+        }
+    });
+</script>
 
 </body>
 </html>
