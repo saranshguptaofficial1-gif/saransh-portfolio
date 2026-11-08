@@ -43,6 +43,10 @@ body {
     border-radius: 50%;
 }
 
+.menu-toggle {
+    display: none;
+}
+
 nav {
     display: flex;
     align-items: center;
@@ -513,22 +517,90 @@ footer {
 
 @media (max-width: 800px) {
     .navbar {
-        height: 65px;
+        height: 68px;
         padding: 0 6%;
+        position: relative;
+        z-index: 20;
+        background: #10110F;
     }
 
-    nav {
-        gap: 12px;
+    .menu-toggle {
+        width: 42px;
+        height: 42px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 5px;
+        border: 1px solid #3A3D35;
+        border-radius: 50%;
+        background: transparent;
+        cursor: pointer;
+        z-index: 22;
     }
 
-    nav a {
-        font-size: 9px;
+    .menu-toggle span {
+        display: block;
+        width: 17px;
+        height: 2px;
+        border-radius: 2px;
+        background: #C5F467;
+        transition: transform 0.25s ease, opacity 0.2s ease;
     }
 
-    nav a.resume-nav {
-        padding: 8px 9px;
-        font-size: 8px;
-        letter-spacing: 0.8px;
+    .menu-toggle[aria-expanded="true"] span:first-child {
+        transform: translateY(7px) rotate(45deg);
+    }
+
+    .menu-toggle[aria-expanded="true"] span:nth-child(2) {
+        opacity: 0;
+    }
+
+    .menu-toggle[aria-expanded="true"] span:last-child {
+        transform: translateY(-7px) rotate(-45deg);
+    }
+
+    nav.site-nav {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0;
+        padding: 10px 6% 22px;
+        background: #10110F;
+        border-bottom: 1px solid #3A3D35;
+        opacity: 0;
+        visibility: hidden;
+        pointer-events: none;
+        transform: translateY(-10px);
+        transition: opacity 0.22s ease, transform 0.22s ease, visibility 0.22s ease;
+    }
+
+    nav.site-nav.is-open {
+        opacity: 1;
+        visibility: visible;
+        pointer-events: auto;
+        transform: translateY(0);
+    }
+
+    nav.site-nav a {
+        min-height: 48px;
+        justify-content: flex-start;
+        border-bottom: 1px solid #292C26;
+        font-size: 11px;
+        letter-spacing: 1.5px;
+    }
+
+    nav.site-nav a.resume-nav {
+        justify-content: center;
+        min-height: 44px;
+        margin-top: 15px;
+        padding: 0 16px;
+        font-size: 10px;
+        letter-spacing: 1px;
     }
 
     .hero {
