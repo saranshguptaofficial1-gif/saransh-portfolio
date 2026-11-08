@@ -180,6 +180,7 @@
         <textarea id="message" name="message" placeholder="Type your message here..." required></textarea>
 
         <button type="submit">SUBMIT</button>
+        <p class="form-feedback" id="formFeedback" role="status" aria-live="polite" aria-atomic="true" tabindex="-1" hidden></p>
 
     </form>
 </section>
@@ -214,6 +215,57 @@
             siteNav.classList.remove("is-open");
             menuToggle.setAttribute("aria-expanded", "false");
             menuToggle.setAttribute("aria-label", "Open navigation menu");
+        }
+    });
+
+    // Submit the contact form without sending visitors away from the portfolio.
+    const contactForm = document.querySelector("#contactForm");
+    const formFeedback = document.querySelector("#formFeedback");
+    const submitButton = contactForm.querySelector('button[type="submit"]');
+
+    contactForm.addEventListener("submit", async (event) => {
+        event.preventDefault();
+
+        if (!contactForm.reportValidity()) return;
+
+        const originalButtonText = submitButton.textContent;
+        submitButton.disabled = true;
+        submitButton.textContent = "SENDING...";
+        submitButton.setAttribute("aria-busy", "true");
+        formFeedback.hidden = true;
+        formFeedback.className = "form-feedback";
+        formFeedback.textContent = "";
+
+        try {
+            const response = await fetch(contactForm.action, {
+                method: "POST",
+                body: new FormData(contactForm),
+                headers: { "Accept": "application/json" }
+            });
+
+            if (!response.ok) {
+                let message = "We couldn't send your message. Please try again or email me directly.";
+                try {
+                    const result = await response.json();
+                    if (result.errors && result.errors.length) {
+                        message = result.errors.map((error) => error.message).join(" ");
+                    }
+                } catch (_) {}
+                throw new Error(message);
+            }
+
+            contactForm.reset();
+            formFeedback.textContent = "✓ Thanks for reaching out! Your message has been sent. I’ll get back to you soon.";
+            formFeedback.classList.add("is-success");
+        } catch (error) {
+            formFeedback.textContent = error.message || "Something went wrong. Please try again or email me directly.";
+            formFeedback.classList.add("is-error");
+        } finally {
+            formFeedback.hidden = false;
+            submitButton.disabled = false;
+            submitButton.textContent = originalButtonText;
+            submitButton.removeAttribute("aria-busy");
+            formFeedback.focus();
         }
     });
 </script>
