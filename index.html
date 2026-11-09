@@ -262,6 +262,11 @@
         let dragStartScroll = 0;
 
         brandsMarquee.addEventListener("pointerdown", (event) => {
+            // Leave touch gestures to the browser so native mobile swiping works.
+            if (event.pointerType === "touch") {
+                brandsMarquee.classList.add("is-touching");
+                return;
+            }
             if (event.pointerType === "mouse" && event.button !== 0) return;
             isDraggingBrands = true;
             dragStartX = event.clientX;
@@ -282,6 +287,10 @@
         brandsMarquee.addEventListener("pointerup", stopBrandDrag);
         brandsMarquee.addEventListener("pointercancel", stopBrandDrag);
         brandsMarquee.addEventListener("lostpointercapture", stopBrandDrag);
+        brandsMarquee.addEventListener("pointerup", (event) => {
+            if (event.pointerType === "touch") brandsMarquee.classList.remove("is-touching");
+        });
+        brandsMarquee.addEventListener("pointercancel", () => brandsMarquee.classList.remove("is-touching"));
 
         brandsMarquee.addEventListener("wheel", (event) => {
             if (Math.abs(event.deltaY) > Math.abs(event.deltaX)) {
