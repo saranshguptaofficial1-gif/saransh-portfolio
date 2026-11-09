@@ -30,6 +30,7 @@
     <nav id="site-nav" class="site-nav">
         <a href="#">INDEX</a>
         <a href="#work">WORK</a>
+        <a href="#experience">EXPERIENCE</a>
         <a href="#about">ABOUT</a>
         <a href="#tools">TOOLS</a>
         <a href="#testimonials">TESTIMONIALS</a>
@@ -766,6 +767,43 @@
             formFeedback.focus();
         }
     });
+
+    // Animate the experience timeline as the visitor scrolls through it.
+    const experienceTimeline = document.querySelector(".experience-timeline");
+    const experienceItems = document.querySelectorAll(".experience-item");
+    const experienceProgress = document.querySelector(".experience-progress span");
+
+    if (experienceTimeline && experienceProgress && experienceItems.length) {
+        const updateExperienceTimeline = () => {
+            const rect = experienceTimeline.getBoundingClientRect();
+            const viewportFocus = window.innerHeight * 0.48;
+            const start = rect.top - viewportFocus;
+            const total = Math.max(rect.height, 1);
+            const progress = Math.max(0, Math.min(1, -start / total));
+            experienceProgress.style.height = `${progress * 100}%`;
+
+            experienceItems.forEach((item) => {
+                const itemRect = item.getBoundingClientRect();
+                const itemCenter = itemRect.top + (itemRect.height * 0.5);
+                item.classList.toggle("is-active", itemCenter < viewportFocus + 55);
+            });
+        };
+
+        let experienceTicking = false;
+        const requestExperienceUpdate = () => {
+            if (experienceTicking) return;
+            experienceTicking = true;
+            requestAnimationFrame(() => {
+                updateExperienceTimeline();
+                experienceTicking = false;
+            });
+        };
+
+        updateExperienceTimeline();
+        window.addEventListener("scroll", requestExperienceUpdate, { passive: true });
+        window.addEventListener("resize", requestExperienceUpdate);
+    }
+
 </script>
 
 </body>
