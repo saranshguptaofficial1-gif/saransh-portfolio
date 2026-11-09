@@ -1574,3 +1574,339 @@ nav.site-nav a:not(.resume-nav):focus-visible::after {
         transition: none;
     }
 }
+
+
+/* =========================
+   EXPERIENCE / ANIMATED TIMELINE
+========================= */
+
+.experience-section {
+    padding: 112px 5% 125px;
+    border-top: 1px solid #292C26;
+    display: grid;
+    grid-template-columns: minmax(300px, 0.78fr) minmax(520px, 1.22fr);
+    gap: clamp(55px, 9vw, 140px);
+    align-items: start;
+}
+
+.experience-heading {
+    position: sticky;
+    top: 72px;
+    align-self: start;
+}
+
+.experience-kicker {
+    color: #92958A;
+    font-size: 10px;
+    letter-spacing: 2.5px;
+    margin-bottom: 18px;
+}
+
+.experience-heading h2 {
+    font-family: "Barlow Condensed", sans-serif;
+    font-size: clamp(72px, 8.5vw, 128px);
+    line-height: 0.82;
+    letter-spacing: -2px;
+    font-weight: 600;
+}
+
+.experience-heading h2 em {
+    color: #C5F467;
+    font-style: normal;
+}
+
+.experience-timeline {
+    position: relative;
+    padding: 14px 0 10px 42px;
+}
+
+.experience-progress {
+    position: absolute;
+    top: 28px;
+    bottom: 30px;
+    left: 9px;
+    width: 1px;
+    background: #34372F;
+    overflow: hidden;
+}
+
+.experience-progress span {
+    display: block;
+    width: 100%;
+    height: 0;
+    background: linear-gradient(to bottom, #C5F467 0%, rgba(197,244,103,0.45) 100%);
+    box-shadow: 0 0 13px rgba(197,244,103,0.2);
+    transition: height 0.18s ease-out;
+}
+
+.experience-item {
+    position: relative;
+    padding: 0 0 62px;
+}
+
+.experience-item:last-child {
+    padding-bottom: 0;
+}
+
+.experience-node {
+    position: absolute;
+    left: -39px;
+    top: 25px;
+    width: 19px;
+    height: 19px;
+    border: 1px solid #555A4C;
+    border-radius: 50%;
+    background: #10110F;
+    box-shadow: 0 0 0 6px #10110F;
+    transition: background 0.35s ease, border-color 0.35s ease, box-shadow 0.35s ease, transform 0.35s ease;
+    z-index: 2;
+}
+
+.experience-item.is-active .experience-node {
+    background: #C5F467;
+    border-color: #C5F467;
+    box-shadow: 0 0 0 6px #10110F, 0 0 22px rgba(197,244,103,0.28);
+    transform: scale(1.12);
+}
+
+.experience-card {
+    padding: 30px 32px 31px;
+    border: 1px solid #292C26;
+    background: #171915;
+    transition: transform 0.35s ease, border-color 0.35s ease, background 0.35s ease, box-shadow 0.35s ease;
+}
+
+.experience-item:hover .experience-card,
+.experience-item.is-active .experience-card {
+    border-color: #3F4634;
+    background: #1A1C17;
+}
+
+.experience-item:hover .experience-card {
+    transform: translateX(5px);
+}
+
+.experience-meta {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    margin-bottom: 24px;
+}
+
+.experience-date {
+    color: #92958A;
+    font-size: 9px;
+    font-weight: 600;
+    letter-spacing: 1.8px;
+}
+
+.experience-status {
+    color: #10110F;
+    background: #C5F467;
+    border-radius: 20px;
+    padding: 7px 10px;
+    font-size: 8px;
+    font-weight: 700;
+    letter-spacing: 1.2px;
+}
+
+.experience-main {
+    display: grid;
+    grid-template-columns: 66px 1fr;
+    gap: 20px;
+    align-items: start;
+}
+
+.experience-company-mark {
+    width: 58px;
+    height: 58px;
+    display: grid;
+    place-items: center;
+    border: 1px solid #3E4435;
+    border-radius: 14px;
+    background: #20221E;
+    color: #C5F467;
+    font-family: "Barlow Condensed", sans-serif;
+    font-size: 21px;
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+
+.experience-company-mark.toi-mark {
+    color: #F5F5EF;
+    background: linear-gradient(145deg, #5E1818, #2B0D0D);
+    border-color: #6E2929;
+    font-family: Georgia, serif;
+    font-size: 17px;
+    letter-spacing: -1px;
+}
+
+.experience-company-mark.freelancer-mark {
+    color: #58B8FF;
+    background: #05070B;
+    border-color: #273B4B;
+    font-size: 27px;
+}
+
+.experience-details h3 {
+    color: #F5F5EF;
+    font-family: "Barlow Condensed", sans-serif;
+    font-size: clamp(30px, 3vw, 45px);
+    line-height: 0.95;
+    font-weight: 500;
+    letter-spacing: 0.2px;
+}
+
+.experience-company {
+    margin-top: 10px;
+    color: #D5D6CE;
+    font-size: 12px;
+    line-height: 1.6;
+}
+
+.experience-location {
+    margin-top: 3px;
+    color: #777B70;
+    font-size: 10px;
+    letter-spacing: 0.5px;
+}
+
+.experience-description {
+    max-width: 600px;
+    margin-top: 18px;
+    color: #92958A;
+    font-size: 12px;
+    line-height: 1.8;
+}
+
+.experience-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 7px;
+    margin-top: 20px;
+}
+
+.experience-tags span {
+    border: 1px solid #34372F;
+    border-radius: 30px;
+    padding: 7px 9px;
+    color: #92958A;
+    font-size: 7px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    transition: color 0.25s ease, border-color 0.25s ease, background 0.25s ease;
+}
+
+.experience-item:hover .experience-tags span,
+.experience-item.is-active .experience-tags span {
+    border-color: #59634A;
+    color: #C5F467;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .experience-progress span {
+        transition: none;
+    }
+
+    .experience-item:hover .experience-card {
+        transform: none;
+    }
+}
+
+@media (max-width: 800px) {
+    .experience-section {
+        display: block;
+        padding: 78px 6% 90px;
+    }
+
+    .experience-heading {
+        position: static;
+    }
+
+    .experience-heading .section-label {
+        margin-bottom: 42px;
+    }
+
+    .experience-heading h2 {
+        font-size: clamp(68px, 17vw, 104px);
+    }
+
+    .experience-timeline {
+        margin-top: 48px;
+        padding-left: 30px;
+    }
+
+    .experience-progress {
+        left: 7px;
+        top: 28px;
+        bottom: 25px;
+    }
+
+    .experience-node {
+        left: -31px;
+        width: 17px;
+        height: 17px;
+    }
+
+    .experience-card {
+        padding: 24px 20px 25px;
+    }
+
+    .experience-item {
+        padding-bottom: 40px;
+    }
+
+    .experience-main {
+        grid-template-columns: 48px 1fr;
+        gap: 13px;
+    }
+
+    .experience-company-mark {
+        width: 44px;
+        height: 44px;
+        border-radius: 11px;
+        font-size: 16px;
+    }
+
+    .experience-company-mark.freelancer-mark {
+        font-size: 22px;
+    }
+
+    .experience-details h3 {
+        font-size: clamp(26px, 8vw, 39px);
+    }
+
+    .experience-company {
+        font-size: 10px;
+        line-height: 1.6;
+    }
+
+    .experience-description {
+        font-size: 10px;
+        line-height: 1.75;
+    }
+
+    .experience-tags {
+        margin-top: 16px;
+    }
+
+    .experience-tags span {
+        font-size: 6.5px;
+        padding: 6px 8px;
+    }
+
+    .experience-meta {
+        margin-bottom: 19px;
+    }
+
+    .experience-date {
+        font-size: 7.5px;
+        letter-spacing: 1.3px;
+    }
+
+    .experience-status {
+        padding: 6px 8px;
+        font-size: 7px;
+    }
+}
