@@ -1749,7 +1749,12 @@ nav.site-nav a:not(.resume-nav):focus-visible::after {
     font-size: 27px;
 }
 
-.experience-company-mark.freelance-video-mark {\n    border: 0;\n    background: transparent;\n}\n\n/* Keep company artwork as a clean logo only inside the timeline mark. */
+.experience-company-mark.freelance-video-mark {
+    border: 0;
+    background: transparent;
+}
+
+/* Keep company artwork as a clean logo only inside the timeline mark. */
 .experience-company-mark img {
     display: block;
     width: 100%;
@@ -1949,6 +1954,14 @@ nav.site-nav a:not(.resume-nav):focus-visible::after {
     display: block;
     object-fit: contain;
     border-radius: 12px;
+}
+
+.experience-company-mark.freelance-video-mark img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: contain;
+    border-radius: 0;
 }
 
 @media (max-width: 800px) {
