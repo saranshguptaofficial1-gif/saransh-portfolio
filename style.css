@@ -278,13 +278,31 @@ h1 em {
 
 .brands-marquee {
     width: 100%;
-    overflow: hidden;
+    overflow-x: auto;
+    overflow-y: hidden;
     position: relative;
     padding: 18px 0;
     border-top: 1px solid #292C26;
     border-bottom: 1px solid #292C26;
+    cursor: grab;
+    touch-action: pan-x;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
     -webkit-mask-image: linear-gradient(to right, transparent, #000 5%, #000 95%, transparent);
     mask-image: linear-gradient(to right, transparent, #000 5%, #000 95%, transparent);
+}
+
+.brands-marquee::-webkit-scrollbar {
+    display: none;
+}
+
+.brands-marquee.is-dragging {
+    cursor: grabbing;
+    user-select: none;
+}
+
+.brands-marquee.is-dragging .brands-track {
+    animation-play-state: paused;
 }
 
 .brands-track {
