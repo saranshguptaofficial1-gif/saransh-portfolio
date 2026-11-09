@@ -254,20 +254,57 @@
         }
     });
 
-    // Let visitors manually drag or swipe the brand marquee.
+    // Keep the brand strip moving automatically while allowing manual touch/mouse scrolling.
     const brandsMarquee = document.querySelector(".brands-marquee");
-    if (brandsMarquee) {
+    const brandsTrack = document.querySelector(".brands-track");
+    if (brandsMarquee && brandsTrack) {
         let isDraggingBrands = false;
         let dragStartX = 0;
         let dragStartScroll = 0;
+        let autoScrollPaused = false;
+        let resumeTimer;
+        let previousFrameTime = 0;
+        const scrollSpeed = 32; // pixels per second
+
+        const pauseAutoScroll = () => {
+            autoScrollPaused = true;
+            window.clearTimeout(resumeTimer);
+        };
+
+        const resumeAutoScroll = (delay = 1200) => {
+            window.clearTimeout(resumeTimer);
+            resumeTimer = window.setTimeout(() => {
+                autoScrollPaused = false;
+                previousFrameTime = 0;
+            }, delay);
+        };
+
+        // Use scrollLeft for autoplay so native mobile swipes and autoplay can coexist.
+        const animateBrands = (time) => {
+            if (!autoScrollPaused && !isDraggingBrands) {
+                if (previousFrameTime) {
+                    const elapsed = Math.min((time - previousFrameTime) / 1000, 0.05);
+                    const loopWidth = brandsTrack.scrollWidth / 2;
+                    if (loopWidth > 0) {
+                        brandsMarquee.scrollLeft += scrollSpeed * elapsed;
+                        if (brandsMarquee.scrollLeft >= loopWidth) {
+                            brandsMarquee.scrollLeft -= loopWidth;
+                        }
+                    }
+                }
+                previousFrameTime = time;
+            } else {
+                previousFrameTime = 0;
+            }
+            requestAnimationFrame(animateBrands);
+        };
+        requestAnimationFrame(animateBrands);
 
         brandsMarquee.addEventListener("pointerdown", (event) => {
-            // Leave touch gestures to the browser so native mobile swiping works.
-            if (event.pointerType === "touch") {
-                brandsMarquee.classList.add("is-touching");
-                return;
-            }
+            pauseAutoScroll();
+            if (event.pointerType === "touch") return;
             if (event.pointerType === "mouse" && event.button !== 0) return;
+
             isDraggingBrands = true;
             dragStartX = event.clientX;
             dragStartScroll = brandsMarquee.scrollLeft;
@@ -280,22 +317,31 @@
             brandsMarquee.scrollLeft = dragStartScroll - (event.clientX - dragStartX);
         });
 
-        const stopBrandDrag = () => {
-            isDraggingBrands = false;
-            brandsMarquee.classList.remove("is-dragging");
+        const stopBrandInteraction = (event) => {
+            if (isDraggingBrands) {
+                isDraggingBrands = false;
+                brandsMarquee.classList.remove("is-dragging");
+            }
+            if (!event || event.pointerType === "touch" || event.pointerType === "mouse") {
+                resumeAutoScroll();
+            }
         };
-        brandsMarquee.addEventListener("pointerup", stopBrandDrag);
-        brandsMarquee.addEventListener("pointercancel", stopBrandDrag);
-        brandsMarquee.addEventListener("lostpointercapture", stopBrandDrag);
-        brandsMarquee.addEventListener("pointerup", (event) => {
-            if (event.pointerType === "touch") brandsMarquee.classList.remove("is-touching");
-        });
-        brandsMarquee.addEventListener("pointercancel", () => brandsMarquee.classList.remove("is-touching"));
+
+        brandsMarquee.addEventListener("pointerup", stopBrandInteraction);
+        brandsMarquee.addEventListener("pointercancel", stopBrandInteraction);
+        brandsMarquee.addEventListener("lostpointercapture", stopBrandInteraction);
+
+        // Also cover browsers that dispatch touch events independently.
+        brandsMarquee.addEventListener("touchstart", pauseAutoScroll, { passive: true });
+        brandsMarquee.addEventListener("touchend", () => resumeAutoScroll(), { passive: true });
+        brandsMarquee.addEventListener("touchcancel", () => resumeAutoScroll(), { passive: true });
 
         brandsMarquee.addEventListener("wheel", (event) => {
             if (Math.abs(event.deltaY) > Math.abs(event.deltaX)) {
                 brandsMarquee.scrollLeft += event.deltaY;
                 event.preventDefault();
+                pauseAutoScroll();
+                resumeAutoScroll();
             }
         }, { passive: false });
     }
