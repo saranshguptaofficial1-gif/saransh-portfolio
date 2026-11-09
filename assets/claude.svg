@@ -1,1 +1,17 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256"><rect width="256" height="256" rx="48" fill="#000"/><g fill="#e97855" transform="translate(128 128)"><ellipse rx="10" ry="110"/><ellipse rx="10" ry="110" transform="rotate(45)"/><ellipse rx="10" ry="110" transform="rotate(90)"/><ellipse rx="10" ry="110" transform="rotate(135)"/><ellipse rx="10" ry="110" transform="rotate(180)"/><ellipse rx="10" ry="110" transform="rotate(225)"/><ellipse rx="10" ry="110" transform="rotate(270)"/><ellipse rx="10" ry="110" transform="rotate(315)"/></g></svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+<rect width="512" height="512" fill="#fff"/>
+<g fill="#d97957" transform="translate(256 256)">
+<path d="M-13-12 L-166-237 Q-178-256 -166-269 Q-153-282 -139-262 L-3-92 Z"/>
+<path d="M-13-12 L-49-267 Q-52-290 -35-295 Q-18-299 -15-276 L2-94 Z"/>
+<path d="M-13-12 L91-247 Q101-268 116-263 Q131-258 121-238 L29-91 Z"/>
+<path d="M-13-12 L214-176 Q234-189 244-176 Q254-162 235-149 L58-59 Z"/>
+<path d="M-13-12 L255-54 Q280-59 284-42 Q287-25 263-21 L77-12 Z"/>
+<path d="M-13-12 L254 35 Q279 40 277 57 Q275 74 251 72 L72 25 Z"/>
+<path d="M-13-12 L216 147 Q235 160 225 174 Q215 187 196 173 L49 46 Z"/>
+<path d="M-13-12 L113 237 Q123 259 108 267 Q92 275 81 253 L24 79 Z"/>
+<path d="M-13-12 L8 272 Q10 296 -7 299 Q-24 302 -26 278 L-18 82 Z"/>
+<path d="M-13-12 L-121 238 Q-132 259 -148 252 Q-163 245 -151 224 L-35 54 Z"/>
+<path d="M-13-12 L-238 166 Q-257 180 -267 167 Q-277 154 -258 140 L-61 21 Z"/>
+<path d="M-13-12 L-275 20 Q-299 21 -301 4 Q-303-13 -279-15 L-77-15 Z"/>
+<path d="M-13-12 L-238-100 Q-259-110 -252-126 Q-245-141 -223-130 L-53-35 Z"/>
+</g></svg>
