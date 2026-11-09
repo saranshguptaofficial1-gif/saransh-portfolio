@@ -782,6 +782,22 @@ h1 em {
 }
 
 @media (max-width: 800px) {
+    /* On touch devices, use real horizontal scrolling instead of a
+       transformed CSS marquee so Samsung/Android swipe gestures work. */
+    .brands-marquee {
+        overflow-x: auto;
+        overflow-y: hidden;
+        -webkit-overflow-scrolling: touch;
+        overscroll-behavior-x: contain;
+        touch-action: pan-x;
+    }
+
+    .brands-track {
+        animation: none;
+        transform: none;
+        will-change: auto;
+    }
+
     .navbar {
         height: 68px;
         padding: 0 6%;
