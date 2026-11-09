@@ -1758,6 +1758,22 @@ nav.site-nav a:not(.resume-nav):focus-visible::after {
     max-height: 100%;
     object-fit: contain;
     object-position: center;
+    opacity: 1;
+    visibility: visible;
+}
+.experience-company-mark.toi-mark {
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8px;
+}
+.experience-company-mark.toi-mark img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    opacity: 1;
+    visibility: visible;
 }
 
 .experience-company-mark.toi-mark img,
