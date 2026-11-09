@@ -310,12 +310,9 @@ h1 em {
     align-items: center;
     gap: 80px;
     width: max-content;
-    animation: brands-scroll 22s linear infinite;
-    will-change: transform;
-}
-
-.brands-marquee:hover .brands-track {
-    animation-play-state: paused;
+    animation: none;
+    transform: none;
+    will-change: auto;
 }
 
 .brand-logo {
@@ -790,12 +787,6 @@ h1 em {
         -webkit-overflow-scrolling: touch;
         overscroll-behavior-x: contain;
         touch-action: pan-x;
-    }
-
-    .brands-track {
-        animation: none;
-        transform: none;
-        will-change: auto;
     }
 
     .navbar {
