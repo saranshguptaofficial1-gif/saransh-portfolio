@@ -1493,3 +1493,84 @@ h1 em {
         letter-spacing: 0.9px;
     }
 }
+
+
+/* =========================
+   SUBTLE INTERACTION DETAILS
+========================= */
+
+nav.site-nav a:not(.resume-nav) {
+    position: relative;
+    transition: color 0.25s ease;
+}
+
+nav.site-nav a:not(.resume-nav)::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 3px;
+    height: 1px;
+    background: #C5F467;
+    transform: scaleX(0);
+    transform-origin: center;
+    transition: transform 0.25s ease;
+}
+
+nav.site-nav a:not(.resume-nav):hover::after,
+nav.site-nav a:not(.resume-nav):focus-visible::after {
+    transform: scaleX(1);
+}
+
+.primary-btn,
+.secondary-btn,
+.contact-instagram,
+.resume-download,
+.footer-links a,
+.contact-form button {
+    transition: transform 0.25s ease, background 0.25s ease, color 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.primary-btn:active,
+.secondary-btn:active,
+.contact-instagram:active,
+.resume-download:active,
+.footer-links a:active {
+    transform: translateY(1px) scale(0.98);
+}
+
+.primary-btn:focus-visible,
+.secondary-btn:focus-visible,
+.contact-instagram:focus-visible,
+.resume-download:focus-visible,
+.footer-links a:focus-visible,
+.contact-form button:focus-visible {
+    outline: 1px solid #C5F467;
+    outline-offset: 4px;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus,
+.contact-form select:focus {
+    border-bottom-color: #C5F467;
+    box-shadow: 0 7px 18px rgba(197, 244, 103, 0.06);
+}
+
+.tool-card:focus-within {
+    border-color: #C5F467;
+    transform: translateY(-4px);
+}
+
+.brand-logo:focus-within img {
+    transform: scale(1.08);
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+
+    nav.site-nav a::after {
+        transition: none;
+    }
+}
