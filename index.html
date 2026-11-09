@@ -284,7 +284,10 @@
             if (!autoScrollPaused && !isDraggingBrands) {
                 if (previousFrameTime) {
                     const elapsed = Math.min((time - previousFrameTime) / 1000, 0.05);
-                    const loopWidth = brandsTrack.scrollWidth / 2;
+                    const halfCount = Math.floor(brandsTrack.children.length / 2);
+                    const loopWidth = halfCount > 0
+                        ? brandsTrack.children[halfCount].offsetLeft - brandsTrack.children[0].offsetLeft
+                        : 0;
                     if (loopWidth > 0) {
                         brandsMarquee.scrollLeft += scrollSpeed * elapsed;
                         if (brandsMarquee.scrollLeft >= loopWidth) {
