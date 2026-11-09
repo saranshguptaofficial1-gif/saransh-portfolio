@@ -1624,7 +1624,7 @@ nav.site-nav a:not(.resume-nav):focus-visible::after {
     position: absolute;
     top: 28px;
     bottom: 30px;
-    left: 9px;
+    left: 12px;
     width: 1px;
     background: #34372F;
     overflow: hidden;
