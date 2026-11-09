@@ -653,7 +653,20 @@ h1 em {
     letter-spacing: 1px;
 }
 .testimonial-client p span { color: #C5F467; padding: 0 3px; }
-.testimonials-hint {
+
+.testimonial-project {
+    margin-top: 13px;
+    color: #777B70;
+    font-size: 7px;
+    line-height: 1.7;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+.testimonial-project span {
+    color: #C5F467;
+    font-weight: 600;
+}
+\n.testimonials-hint {
     padding: 0 5%;
     color: #777B70;
     font-size: 9px;
