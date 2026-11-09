@@ -85,7 +85,7 @@ nav a.resume-nav:hover {
 }
 
 .hero {
-    min-height: 630px;
+    min-height: calc(100vh - 76px);
     display: block;
     position: relative;
     border-bottom: 1px solid #292C26;
@@ -96,7 +96,7 @@ nav a.resume-nav:hover {
 }
 
 .hero-content {
-    min-height: 630px;
+    min-height: calc(100vh - 76px);
     padding: 80px 5% 70px;
     position: relative;
     z-index: 2;
