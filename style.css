@@ -1361,28 +1361,48 @@ h1 em {
 }
 
 @media (max-width:800px){
+    /* Keep the reference-style layout on mobile too: copy stays on the
+       left while the animated logo dial sits on the right. */
     .tools-section {
-        min-height: auto;
-        padding: 75px 6% 90px;
-        display: block;
+        min-height: 470px;
+        padding: 72px 0 82px 6%;
+        display: grid;
+        grid-template-columns: 43% 57%;
+        align-items: center;
+        gap: 0;
+        overflow: hidden;
     }
 
     .tools-copy {
-        max-width: 100%;
+        max-width: none;
+        padding-right: 10px;
+        position: relative;
+        z-index: 4;
+    }
+
+    .tools-kicker {
+        font-size: 8px;
+        letter-spacing: 1.8px;
+        margin-bottom: 14px;
     }
 
     .tools-copy h2 {
-        font-size: clamp(72px, 17vw, 105px);
+        font-size: clamp(48px, 14vw, 78px);
+        line-height: 0.82;
     }
 
     .tools-copy > p:last-child {
-        max-width: 100%;
-        font-size: 14px;
+        max-width: 180px;
+        font-size: 11px;
+        line-height: 1.75;
+        margin-top: 22px;
     }
 
     .tools-orbit {
-        width: min(94vw, 430px);
-        margin: 58px auto 0;
+        width: min(74vw, 360px);
+        min-width: 300px;
+        margin: 0 0 0 -12px;
+        justify-self: start;
     }
 
     .orbit-ring-one {
@@ -1396,34 +1416,34 @@ h1 em {
     }
 
     .tools-center {
-        width: 104px;
-        height: 104px;
-        font-size: 8px;
+        width: 94px;
+        height: 94px;
+        font-size: 7px;
     }
 
     .tool-orbit {
-        width: 62px;
-        height: 62px;
-        margin: -31px;
+        width: 58px;
+        height: 58px;
+        margin: -29px;
     }
 
     .tool-logo {
-        width: 62px;
-        height: 62px;
+        width: 58px;
+        height: 58px;
         box-shadow: 0 0 0 6px rgba(16,17,15,0.82);
     }
 
     .tool-logo img {
-        width: 29px;
-        height: 29px;
+        width: 27px;
+        height: 27px;
     }
 
-    .tool-1 { transform: rotate(0deg) translateX(min(37vw, 160px)); }
-    .tool-2 { transform: rotate(45deg) translateX(min(37vw, 160px)); }
-    .tool-3 { transform: rotate(90deg) translateX(min(37vw, 160px)); }
-    .tool-4 { transform: rotate(135deg) translateX(min(37vw, 160px)); }
-    .tool-5 { transform: rotate(180deg) translateX(min(37vw, 160px)); }
-    .tool-6 { transform: rotate(225deg) translateX(min(37vw, 160px)); }
-    .tool-7 { transform: rotate(270deg) translateX(min(37vw, 160px)); }
-    .tool-8 { transform: rotate(315deg) translateX(min(37vw, 160px)); }
+    .tool-1 { transform: rotate(0deg) translateX(min(31vw, 142px)); }
+    .tool-2 { transform: rotate(45deg) translateX(min(31vw, 142px)); }
+    .tool-3 { transform: rotate(90deg) translateX(min(31vw, 142px)); }
+    .tool-4 { transform: rotate(135deg) translateX(min(31vw, 142px)); }
+    .tool-5 { transform: rotate(180deg) translateX(min(31vw, 142px)); }
+    .tool-6 { transform: rotate(225deg) translateX(min(31vw, 142px)); }
+    .tool-7 { transform: rotate(270deg) translateX(min(31vw, 142px)); }
+    .tool-8 { transform: rotate(315deg) translateX(min(31vw, 142px)); }
 }
