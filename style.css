@@ -290,6 +290,7 @@ h1 em {
 .brands-track {
     display: flex;
     align-items: center;
+    gap: 80px;
     width: max-content;
     animation: brands-scroll 22s linear infinite;
     will-change: transform;
@@ -300,9 +301,10 @@ h1 em {
 }
 
 .brand-logo {
-    flex: 0 0 250px;
+    flex: 0 0 auto;
+    width: 180px;
     height: 132px;
-    padding: 14px 28px;
+    padding: 14px 0;
     display: flex;
     align-items: center;
     justify-content: center;
