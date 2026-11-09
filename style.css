@@ -1050,22 +1050,38 @@ h1 em {
     }
 
     .hero {
-        min-height: 650px;
-        background-position: 62% center;
+        min-height: 620px;
+        background-position: 68% center;
+        background-image: linear-gradient(90deg, rgba(16, 17, 15, 0.96) 0%, rgba(16, 17, 15, 0.88) 44%, rgba(16, 17, 15, 0.48) 72%, rgba(16, 17, 15, 0.18) 100%), url("assets/Cinematic_Video_Editing_Hero_Scene_no_text.png");
     }
 
     .hero-content {
-        min-height: 650px;
-        padding: 55px 6% 50px;
+        min-height: 620px;
+        padding: 48px 6% 42px;
     }
 
     h1 {
-        font-size: clamp(60px, 17vw, 100px);
+        font-size: clamp(58px, 16vw, 92px);
         letter-spacing: -1.5px;
     }
 
     .intro {
-        font-size: 14px;
+        max-width: 330px;
+        margin-top: 26px;
+        font-size: 13px;
+        line-height: 1.65;
+    }
+
+    .buttons {
+        margin-top: 25px;
+        gap: 10px;
+    }
+
+    .primary-btn,
+    .secondary-btn {
+        height: 44px;
+        padding: 0 20px;
+        font-size: 10px;
     }
 
     .hero-image {
