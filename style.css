@@ -1910,3 +1910,17 @@ nav.site-nav a:not(.resume-nav):focus-visible::after {
         font-size: 7px;
     }
 }
+
+.experience-company-mark.freelancer-mark img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: contain;
+    border-radius: 12px;
+}
+
+@media (max-width: 800px) {
+    .experience-company-mark.freelancer-mark img {
+        border-radius: 9px;
+    }
+}
