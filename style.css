@@ -1443,6 +1443,7 @@ h1 em {
         padding: 75px 6% 85px;
         grid-template-columns: 42% 58%;
         gap: 8px;
+        align-items: start;
     }
 
     .tools-copy {
