@@ -1749,7 +1749,7 @@ nav.site-nav a:not(.resume-nav):focus-visible::after {
     font-size: 27px;
 }
 
-/* Keep company artwork as a clean logo only inside the timeline mark. */
+.experience-company-mark.freelance-video-mark {\n    border: 0;\n    background: transparent;\n}\n\n/* Keep company artwork as a clean logo only inside the timeline mark. */
 .experience-company-mark img {
     display: block;
     width: 100%;
