@@ -969,6 +969,45 @@ h1 em {
     color: #10110F;
 }
 
+
+@media (max-width: 800px) {
+    .testimonial-card {
+        flex-basis: 82vw;
+        min-height: 0;
+        padding: 34px 28px 30px;
+    }
+
+    .testimonial-copy {
+        font-size: 15px;
+        line-height: 1.75;
+        margin: 16px 0 28px;
+    }
+
+    .testimonial-project {
+        margin-top: 10px;
+        font-size: 8px;
+        line-height: 1.6;
+    }
+
+    .testimonial-client {
+        align-items: flex-start;
+        gap: 13px;
+    }
+
+    .testimonial-client h3 {
+        font-size: 15px;
+        margin-bottom: 5px;
+    }
+
+    .testimonial-client p {
+        font-size: 8px;
+    }
+
+    .testimonial-project span {
+        display: inline;
+    }
+}
+
 @media (max-width: 800px) {
     /* On touch devices, use real horizontal scrolling instead of a
        transformed CSS marquee so Samsung/Android swipe gestures work. */
