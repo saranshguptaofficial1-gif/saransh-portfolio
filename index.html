@@ -254,6 +254,43 @@
         }
     });
 
+    // Let visitors manually drag or swipe the brand marquee.
+    const brandsMarquee = document.querySelector(".brands-marquee");
+    if (brandsMarquee) {
+        let isDraggingBrands = false;
+        let dragStartX = 0;
+        let dragStartScroll = 0;
+
+        brandsMarquee.addEventListener("pointerdown", (event) => {
+            if (event.pointerType === "mouse" && event.button !== 0) return;
+            isDraggingBrands = true;
+            dragStartX = event.clientX;
+            dragStartScroll = brandsMarquee.scrollLeft;
+            brandsMarquee.classList.add("is-dragging");
+            brandsMarquee.setPointerCapture(event.pointerId);
+        });
+
+        brandsMarquee.addEventListener("pointermove", (event) => {
+            if (!isDraggingBrands) return;
+            brandsMarquee.scrollLeft = dragStartScroll - (event.clientX - dragStartX);
+        });
+
+        const stopBrandDrag = () => {
+            isDraggingBrands = false;
+            brandsMarquee.classList.remove("is-dragging");
+        };
+        brandsMarquee.addEventListener("pointerup", stopBrandDrag);
+        brandsMarquee.addEventListener("pointercancel", stopBrandDrag);
+        brandsMarquee.addEventListener("lostpointercapture", stopBrandDrag);
+
+        brandsMarquee.addEventListener("wheel", (event) => {
+            if (Math.abs(event.deltaY) > Math.abs(event.deltaX)) {
+                brandsMarquee.scrollLeft += event.deltaY;
+                event.preventDefault();
+            }
+        }, { passive: false });
+    }
+
     // Count the portfolio statistics up once when the stats section enters view.
     const statsSection = document.querySelector(".stats");
     const statNumbers = document.querySelectorAll(".stat-number");
