@@ -2037,7 +2037,9 @@ nav.site-nav a:not(.resume-nav):focus-visible::after {
 
 .featured-work-media {
     width: 100%;
-    aspect-ratio: 16 / 9;
+    aspect-ratio: 9 / 16;
+    max-width: 520px;
+    margin: 0 auto;
     background: #0B0C0A;
 }
 
@@ -2048,7 +2050,7 @@ nav.site-nav a:not(.resume-nav):focus-visible::after {
     border: 0;
 }
 
-.featured-work-info {
+ .featured-work-info {
     min-height: 82px;
     padding: 20px 24px;
     display: flex;
