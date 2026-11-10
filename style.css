@@ -2051,7 +2051,7 @@ nav.site-nav a:not(.resume-nav):focus-visible::after {
 
 
 /* =========================
-   SELECTED WORK / 9:16 MASONRY SCROLLER
+   SELECTED WORK / MASONRY MARQUEE
 ========================= */
 
 .work-video-marquee {
@@ -2069,12 +2069,8 @@ nav.site-nav a:not(.resume-nav):focus-visible::after {
     mask-image: linear-gradient(to right, transparent 0, #000 4%, #000 96%, transparent 100%);
     overscroll-behavior-x: contain;
 }
-.work-video-marquee::-webkit-scrollbar {
-    display: none;
-}
-.work-video-marquee.is-dragging {
-    cursor: grabbing;
-}
+.work-video-marquee::-webkit-scrollbar { display: none; }
+.work-video-marquee.is-dragging { cursor: grabbing; }
 
 .work-video-track {
     display: flex;
@@ -2084,12 +2080,166 @@ nav.site-nav a:not(.resume-nav):focus-visible::after {
 }
 
 .work-masonry-set {
-    display: flex;
-    align-items: flex-start;
-    gap: 14px;
+    display: grid;
+    grid-template-columns: repeat(3, max-content);
+    grid-template-rows: 250px 250px;
+    grid-auto-flow: column;
+    column-gap: 14px;
+    row-gap: 14px;
     width: max-content;
-    height: 560px;
+    height: 514px;
     flex: 0 0 auto;
+}
+
+/* Six projects form a staggered masonry-style wall. */
+.work-video-card {
+    display: block;
+    position: relative;
+    overflow: hidden;
+    border: 1px solid #292C26;
+    background: #171915;
+    line-height: 0;
+    cursor: pointer;
+    transition: transform 0.35s ease, border-color 0.35s ease, box-shadow 0.35s ease;
+}
+
+/* Vertical short-form projects. */
+.work-video-card-tall {
+    width: clamp(220px, 18vw, 300px);
+    aspect-ratio: 9 / 16;
+}
+
+/* Landscape project. */
+.work-video-card-landscape {
+    width: clamp(340px, 28vw, 500px);
+    aspect-ratio: 16 / 9;
+}
+
+/* Alternate cards across the two masonry rows. */
+.work-video-card:nth-child(1) { grid-column: 1; grid-row: 1; }
+.work-video-card:nth-child(2) { grid-column: 1; grid-row: 2; }
+.work-video-card:nth-child(3) { grid-column: 2; grid-row: 1; }
+.work-video-card:nth-child(4) { grid-column: 2; grid-row: 2; }
+.work-video-card:nth-child(5) { grid-column: 3; grid-row: 1; }
+.work-video-card:nth-child(6) { grid-column: 3; grid-row: 2; }
+
+/* Keep the original 9:16 videos visually staggered inside their masonry cells. */
+.work-video-card-tall:nth-child(even) {
+    transform: translateY(10px);
+}
+
+/* Landscape Vimeo card fills its masonry cell naturally. */
+.work-video-card-landscape {
+    align-self: center;
+    justify-self: start;
+}
+
+.work-video-card img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    background: #171915;
+    transition: filter 0.5s ease;
+}
+
+.work-video-card::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(0,0,0,0.42), transparent 35%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+}
+
+.work-play {
+    position: absolute;
+    right: 15px;
+    bottom: 15px;
+    width: 34px;
+    height: 34px;
+    display: grid;
+    place-items: center;
+    border: 1px solid rgba(245,245,239,0.45);
+    border-radius: 50%;
+    color: #F5F5EF;
+    background: rgba(16,17,15,0.5);
+    backdrop-filter: blur(7px);
+    font-size: 12px;
+    line-height: 1;
+    opacity: 0;
+    transform: translateY(6px);
+    transition: opacity 0.3s ease, transform 0.3s ease, border-color 0.3s ease, color 0.3s ease;
+    z-index: 2;
+}
+
+.work-video-card:hover {
+    transform: translateY(-4px);
+    border-color: #C5F467;
+    box-shadow: 0 18px 42px rgba(0,0,0,0.2);
+}
+.work-video-card-tall:nth-child(even):hover {
+    transform: translateY(6px);
+}
+.work-video-card:hover img { filter: brightness(0.82); }
+.work-video-card:hover::after,
+.work-video-card:hover .work-play { opacity: 1; }
+.work-video-card:hover .work-play {
+    transform: translateY(0);
+    border-color: #C5F467;
+    color: #C5F467;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .work-video-card { transition: none; }
+}
+
+@media (max-width: 800px) {
+    .work-video-marquee {
+        margin-top: 34px;
+        padding: 12px 0 25px;
+    }
+
+    .work-video-track { padding: 0 6vw; }
+
+    .work-masonry-set {
+        grid-template-columns: repeat(3, max-content);
+        grid-template-rows: 170px 170px;
+        column-gap: 10px;
+        row-gap: 10px;
+        height: 350px;
+    }
+
+    .work-video-card-tall {
+        width: 150px;
+        aspect-ratio: 9 / 16;
+    }
+
+    .work-video-card-landscape {
+        width: 270px;
+        aspect-ratio: 16 / 9;
+    }
+
+    .work-video-card:nth-child(1) { grid-column: 1; grid-row: 1; }
+    .work-video-card:nth-child(2) { grid-column: 1; grid-row: 2; }
+    .work-video-card:nth-child(3) { grid-column: 2; grid-row: 1; }
+    .work-video-card:nth-child(4) { grid-column: 2; grid-row: 2; }
+    .work-video-card:nth-child(5) { grid-column: 3; grid-row: 1; }
+    .work-video-card:nth-child(6) { grid-column: 3; grid-row: 2; }
+
+    .work-video-card-tall:nth-child(even) {
+        transform: translateY(6px);
+    }
+
+    .work-play {
+        width: 29px;
+        height: 29px;
+        right: 10px;
+        bottom: 10px;
+        font-size: 10px;
+    }
 }
 
 /* Keep a visible gap where the seamless duplicate set meets the original set. */
