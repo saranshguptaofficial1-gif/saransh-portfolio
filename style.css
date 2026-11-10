@@ -2121,6 +2121,17 @@ nav.site-nav a:not(.resume-nav):focus-visible::after {
     transform: translateY(var(--work-y));
 }
 
+/* Vimeo pre-wedding project is a landscape 16:9 video. */
+.work-video-card-landscape {
+    flex-basis: clamp(340px, 28vw, 500px);
+    width: clamp(340px, 28vw, 500px);
+    aspect-ratio: 16 / 9;
+}
+
+.work-video-card-landscape img {
+    object-fit: cover;
+}
+
 .work-video-card img {
     display: block;
     width: 100%;
@@ -2215,6 +2226,12 @@ nav.site-nav a:not(.resume-nav):focus-visible::after {
     .work-video-card {
         flex-basis: 150px;
         width: 150px;
+    }
+
+    .work-video-card-landscape {
+        flex-basis: 270px;
+        width: 270px;
+        aspect-ratio: 16 / 9;
     }
 
     .work-video-card:nth-child(odd) {
