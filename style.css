@@ -2066,6 +2066,11 @@ nav.site-nav a:not(.resume-nav):focus-visible::after {
     flex: 0 0 auto;
 }
 
+/* Keep a visible gap where the seamless duplicate set meets the original set. */
+.work-masonry-set + .work-masonry-set {
+    margin-left: 14px;
+}
+
 .work-video-card {
     display: block;
     flex: 0 0 clamp(220px, 18vw, 300px);
@@ -2169,6 +2174,10 @@ nav.site-nav a:not(.resume-nav):focus-visible::after {
     .work-masonry-set {
         gap: 10px;
         height: 380px;
+    }
+
+    .work-masonry-set + .work-masonry-set {
+        margin-left: 10px;
     }
 
     .work-video-card {
