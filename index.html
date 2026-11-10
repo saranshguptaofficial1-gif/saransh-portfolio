@@ -704,9 +704,10 @@
         }, { passive: false });
     }
 
-    // Selected work: auto-scroll right-to-left, pause on hover, and support mouse/touch dragging.
+    // Selected work: seamless left-to-right loop, pause on hover, and support manual dragging.
     const workMarquee = document.querySelector(".work-video-marquee");
-    if (workMarquee) {
+    const workTrack = document.querySelector(".work-video-track");
+    if (workMarquee && workTrack) {
         let workDragging = false;
         let workDragStartX = 0;
         let workDragStartScroll = 0;
@@ -720,7 +721,7 @@
             window.clearTimeout(workResumeTimer);
         };
 
-        const resumeWorkAutoScroll = (delay = 1200) => {
+        const resumeWorkAutoScroll = (delay = 900) => {
             window.clearTimeout(workResumeTimer);
             workResumeTimer = window.setTimeout(() => {
                 workAutoPaused = false;
@@ -728,21 +729,21 @@
             }, delay);
         };
 
-        // Start at the right edge so the gallery travels right-to-left.
-        requestAnimationFrame(() => {
-            workMarquee.scrollLeft = workMarquee.scrollWidth - workMarquee.clientWidth;
-        });
+        const setWorkStart = () => {
+            const maxScroll = workMarquee.scrollWidth - workMarquee.clientWidth;
+            workMarquee.scrollLeft = maxScroll;
+        };
+
+        requestAnimationFrame(setWorkStart);
 
         const animateWork = (time) => {
             if (!workAutoPaused && !workDragging) {
                 if (workPreviousTime) {
                     const elapsed = Math.min((time - workPreviousTime) / 1000, 0.05);
-                    const maxScroll = workMarquee.scrollWidth - workMarquee.clientWidth;
+                    workMarquee.scrollLeft += workSpeed * elapsed;
 
-                    if (workMarquee.scrollLeft > 0) {
-                        workMarquee.scrollLeft = Math.max(0, workMarquee.scrollLeft - workSpeed * elapsed);
-                    } else {
-                        workAutoPaused = true;
+                    if (workMarquee.scrollLeft >= workMarquee.scrollWidth - workMarquee.clientWidth) {
+                        workMarquee.scrollLeft = 0;
                     }
                 }
                 workPreviousTime = time;
@@ -754,7 +755,7 @@
         requestAnimationFrame(animateWork);
 
         workMarquee.addEventListener("mouseenter", pauseWorkAutoScroll);
-        workMarquee.addEventListener("mouseleave", () => resumeWorkAutoScroll(900));
+        workMarquee.addEventListener("mouseleave", () => resumeWorkAutoScroll());
 
         workMarquee.addEventListener("pointerdown", (event) => {
             pauseWorkAutoScroll();
@@ -773,10 +774,9 @@
         });
 
         const stopWorkDrag = () => {
-            if (workDragging) {
-                workDragging = false;
-                workMarquee.classList.remove("is-dragging");
-            }
+            if (!workDragging) return;
+            workDragging = false;
+            workMarquee.classList.remove("is-dragging");
             resumeWorkAutoScroll();
         };
 
