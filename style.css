@@ -2043,8 +2043,7 @@ nav.site-nav a:not(.resume-nav):focus-visible::after {
 .work-video-track {
     display: flex;
     width: max-content;
-    gap: 14px;
-    animation: work-horizontal-scroll 24s linear 1;
+    animation: work-horizontal-scroll 28s linear 1;
     will-change: transform;
 }
 
@@ -2055,16 +2054,9 @@ nav.site-nav a:not(.resume-nav):focus-visible::after {
     flex: 0 0 auto;
 }
 
-.work-masonry-column {
-    width: clamp(210px, 21vw, 330px);
-    display: flex;
-    flex-direction: column;
-    gap: 14px;
-}
-
 .work-video-card {
     display: block;
-    width: 100%;
+    width: clamp(260px, 27vw, 390px);
     position: relative;
     overflow: hidden;
     border: 1px solid #292C26;
@@ -2077,7 +2069,7 @@ nav.site-nav a:not(.resume-nav):focus-visible::after {
 .work-video-card img {
     display: block;
     width: 100%;
-    height: auto;
+    height: 100%;
     object-fit: cover;
     transition: transform 0.5s ease, filter 0.5s ease;
 }
@@ -2088,13 +2080,6 @@ nav.site-nav a:not(.resume-nav):focus-visible::after {
 
 .work-video-card-short {
     aspect-ratio: 4 / 5;
-}
-
-.work-video-card-tall img,
-.work-video-card-short img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
 }
 
 .work-video-card::after {
@@ -2159,10 +2144,6 @@ nav.site-nav a:not(.resume-nav):focus-visible::after {
     }
 }
 
-.work-video-marquee:hover .work-video-track {
-    animation-play-state: paused;
-}
-
 @media (prefers-reduced-motion: reduce) {
     .work-video-track {
         animation: none;
@@ -2176,17 +2157,15 @@ nav.site-nav a:not(.resume-nav):focus-visible::after {
     }
 
     .work-video-track {
-        gap: 10px;
-        animation-duration: 28s;
+        animation-duration: 22s;
     }
 
     .work-masonry-set {
         gap: 10px;
     }
 
-    .work-masonry-column {
-        width: 150px;
-        gap: 10px;
+    .work-video-card {
+        width: 180px;
     }
 
     .work-play {
