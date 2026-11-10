@@ -2025,6 +2025,129 @@ nav.site-nav a:not(.resume-nav):focus-visible::after {
 
 
 /* =========================
+   SELECTED WORK / AUTO-SCROLL MASONRY
+========================= */
+
+.work-video-marquee {
+    margin-top: 46px;
+    height: min(760px, 72vw);
+    min-height: 520px;
+    overflow: hidden;
+    position: relative;
+    border-top: 1px solid #292C26;
+    border-bottom: 1px solid #292C26;
+    -webkit-mask-image: linear-gradient(to bottom, transparent 0, #000 7%, #000 93%, transparent 100%);
+    mask-image: linear-gradient(to bottom, transparent 0, #000 7%, #000 93%, transparent 100%);
+}
+
+.work-video-track {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    animation: work-video-scroll 30s linear infinite;
+    will-change: transform;
+}
+
+.work-masonry-set {
+    columns: 3;
+    column-gap: 18px;
+    padding: 18px 0;
+    width: 100%;
+    flex: 0 0 auto;
+}
+
+.work-video-card {
+    display: block;
+    width: 100%;
+    margin: 0 0 18px;
+    break-inside: avoid;
+    border: 1px solid #292C26;
+    background: #171915;
+    overflow: hidden;
+    box-shadow: 0 12px 30px rgba(0,0,0,0.12);
+}
+
+.work-video-media {
+    width: 100%;
+    aspect-ratio: 9 / 16;
+    background: #0B0C0A;
+    position: relative;
+    overflow: hidden;
+}
+
+.work-video-media::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 44px;
+    background: linear-gradient(to bottom, rgba(11,12,10,0.72), transparent);
+    pointer-events: none;
+    z-index: 2;
+}
+
+.work-video-media iframe {
+    display: block;
+    width: 100%;
+    height: 100%;
+    border: 0;
+}
+
+.work-video-card:hover {
+    border-color: #3F4634;
+}
+
+@keyframes work-video-scroll {
+    from {
+        transform: translateY(0);
+    }
+    to {
+        transform: translateY(calc(-50% - 9px));
+    }
+}
+
+.work-video-marquee:hover .work-video-track {
+    animation-play-state: paused;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .work-video-track {
+        animation: none;
+    }
+}
+
+@media (max-width: 800px) {
+    .work-video-marquee {
+        margin-top: 34px;
+        height: 650px;
+        min-height: 0;
+    }
+
+    .work-masonry-set {
+        columns: 2;
+        column-gap: 10px;
+        padding: 10px 0;
+    }
+
+    .work-video-card {
+        margin-bottom: 10px;
+    }
+
+    .work-video-media {
+        aspect-ratio: 9 / 16;
+    }
+
+    .work-video-media::after {
+        height: 36px;
+    }
+
+    .work-video-track {
+        gap: 10px;
+        animation-duration: 25s;
+    }
+}
+
    FEATURED WORK VIDEO
 ========================= */
 
