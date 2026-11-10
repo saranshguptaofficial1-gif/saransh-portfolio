@@ -704,19 +704,9 @@
         }, { passive: false });
     }
 
-    // Selected work: seamless marquee like the Brands section, with the direction reversed.
+    // Selected work: auto-scroll right-to-left, pause on hover, and support manual dragging.
     const workMarquee = document.querySelector(".work-video-marquee");
-    const workTrack = document.querySelector(".work-video-track");
-
-    if (workMarquee && workTrack) {
-        // Duplicate the masonry set once so the marquee can loop seamlessly.
-        const originalWorkSet = workTrack.querySelector(".work-masonry-set");
-        if (originalWorkSet && !workTrack.querySelector(".work-masonry-set.work-masonry-clone")) {
-            const workClone = originalWorkSet.cloneNode(true);
-            workClone.classList.add("work-masonry-clone");
-            workTrack.appendChild(workClone);
-        }
-
+    if (workMarquee) {
         let workDragging = false;
         let workDragStartX = 0;
         let workDragStartScroll = 0;
@@ -725,19 +715,12 @@
         let workPreviousTime = 0;
         const workSpeed = 85;
 
-        const getWorkLoopWidth = () => {
-            const firstSet = workTrack.querySelector(".work-masonry-set");
-            const cloneSet = workTrack.querySelector(".work-masonry-clone");
-            if (!firstSet || !cloneSet) return 0;
-            return cloneSet.offsetLeft - firstSet.offsetLeft;
-        };
-
         const pauseWorkAutoScroll = () => {
             workAutoPaused = true;
             window.clearTimeout(workResumeTimer);
         };
 
-        const resumeWorkAutoScroll = (delay = 900) => {
+        const resumeWorkAutoScroll = (delay = 1200) => {
             window.clearTimeout(workResumeTimer);
             workResumeTimer = window.setTimeout(() => {
                 workAutoPaused = false;
@@ -745,41 +728,31 @@
             }, delay);
         };
 
-        // Start from the second copy and move toward the first copy:
-        // visually this is left-to-right, while the loop remains seamless.
+        // Start at the right edge so the gallery travels right-to-left.
         requestAnimationFrame(() => {
-            const loopWidth = getWorkLoopWidth();
-            if (loopWidth > 0) {
-                workMarquee.scrollLeft = loopWidth;
-            }
+            workMarquee.scrollLeft = workMarquee.scrollWidth - workMarquee.clientWidth;
         });
 
         const animateWork = (time) => {
             if (!workAutoPaused && !workDragging) {
                 if (workPreviousTime) {
                     const elapsed = Math.min((time - workPreviousTime) / 1000, 0.05);
-                    const loopWidth = getWorkLoopWidth();
-
-                    if (loopWidth > 0) {
-                        workMarquee.scrollLeft -= workSpeed * elapsed;
-
-                        if (workMarquee.scrollLeft <= 0) {
-                            workMarquee.scrollLeft += loopWidth;
-                        }
+                    if (workMarquee.scrollLeft > 0) {
+                        workMarquee.scrollLeft = Math.max(0, workMarquee.scrollLeft - workSpeed * elapsed);
+                    } else {
+                        workAutoPaused = true;
                     }
                 }
                 workPreviousTime = time;
             } else {
                 workPreviousTime = 0;
             }
-
             requestAnimationFrame(animateWork);
         };
-
         requestAnimationFrame(animateWork);
 
         workMarquee.addEventListener("mouseenter", pauseWorkAutoScroll);
-        workMarquee.addEventListener("mouseleave", () => resumeWorkAutoScroll());
+        workMarquee.addEventListener("mouseleave", () => resumeWorkAutoScroll(900));
 
         workMarquee.addEventListener("pointerdown", (event) => {
             pauseWorkAutoScroll();
@@ -795,17 +768,6 @@
         workMarquee.addEventListener("pointermove", (event) => {
             if (!workDragging) return;
             workMarquee.scrollLeft = workDragStartScroll - (event.clientX - workDragStartX);
-
-            const loopWidth = getWorkLoopWidth();
-            if (loopWidth > 0) {
-                if (workMarquee.scrollLeft <= 0) {
-                    workMarquee.scrollLeft += loopWidth;
-                    workDragStartScroll += loopWidth;
-                } else if (workMarquee.scrollLeft >= loopWidth * 2) {
-                    workMarquee.scrollLeft -= loopWidth;
-                    workDragStartScroll -= loopWidth;
-                }
-            }
         });
 
         const stopWorkDrag = () => {
@@ -823,17 +785,7 @@
             if (Math.abs(event.deltaY) > Math.abs(event.deltaX)) {
                 event.preventDefault();
                 pauseWorkAutoScroll();
-                workMarquee.scrollLeft -= event.deltaY;
-
-                const loopWidth = getWorkLoopWidth();
-                if (loopWidth > 0) {
-                    if (workMarquee.scrollLeft <= 0) {
-                        workMarquee.scrollLeft += loopWidth;
-                    } else if (workMarquee.scrollLeft >= loopWidth * 2) {
-                        workMarquee.scrollLeft -= loopWidth;
-                    }
-                }
-
+                workMarquee.scrollLeft += event.deltaY;
                 resumeWorkAutoScroll();
             }
         }, { passive: false });
