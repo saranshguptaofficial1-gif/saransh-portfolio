@@ -704,75 +704,95 @@
         }, { passive: false });
     }
 
-    // Selected work: auto-scroll right-to-left, pause on hover, and support manual dragging.
+    // Selected work: same marquee behavior and direction as the Brands section.
     const workMarquee = document.querySelector(".work-video-marquee");
-    if (workMarquee) {
-        let workDragging = false;
-        let workDragStartX = 0;
-        let workDragStartScroll = 0;
-        let workAutoPaused = false;
+    const workTrack = document.querySelector(".work-video-track");
+
+    if (workMarquee && workTrack) {
+        const originalWorkSet = workTrack.querySelector(".work-masonry-set");
+
+        // Duplicate the set once for a seamless continuous loop.
+        if (originalWorkSet && !workTrack.querySelector(".work-masonry-clone")) {
+            const workClone = originalWorkSet.cloneNode(true);
+            workClone.classList.add("work-masonry-clone");
+            workTrack.appendChild(workClone);
+        }
+
+        let isDraggingWork = false;
+        let dragStartXWork = 0;
+        let dragStartScrollWork = 0;
+        let workAutoScrollPaused = false;
         let workResumeTimer;
-        let workPreviousTime = 0;
-        const workSpeed = 85;
+        let previousWorkFrame = 0;
+        const workScrollSpeed = 110;
 
         const pauseWorkAutoScroll = () => {
-            workAutoPaused = true;
+            workAutoScrollPaused = true;
             window.clearTimeout(workResumeTimer);
         };
 
         const resumeWorkAutoScroll = (delay = 1200) => {
             window.clearTimeout(workResumeTimer);
             workResumeTimer = window.setTimeout(() => {
-                workAutoPaused = false;
-                workPreviousTime = 0;
+                workAutoScrollPaused = false;
+                previousWorkFrame = 0;
             }, delay);
         };
 
-        // Start at the right edge so the gallery travels right-to-left.
-        requestAnimationFrame(() => {
-            workMarquee.scrollLeft = workMarquee.scrollWidth - workMarquee.clientWidth;
-        });
-
         const animateWork = (time) => {
-            if (!workAutoPaused && !workDragging) {
-                if (workPreviousTime) {
-                    const elapsed = Math.min((time - workPreviousTime) / 1000, 0.05);
-                    if (workMarquee.scrollLeft > 0) {
-                        workMarquee.scrollLeft = Math.max(0, workMarquee.scrollLeft - workSpeed * elapsed);
-                    } else {
-                        workAutoPaused = true;
+            if (!workAutoScrollPaused && !isDraggingWork) {
+                if (previousWorkFrame) {
+                    const elapsed = Math.min((time - previousWorkFrame) / 1000, 0.05);
+                    const originalSet = workTrack.querySelector(".work-masonry-set");
+                    const cloneSet = workTrack.querySelector(".work-masonry-clone");
+                    const loopWidth = originalSet && cloneSet
+                        ? cloneSet.offsetLeft - originalSet.offsetLeft
+                        : 0;
+
+                    if (loopWidth > 0) {
+                        workMarquee.scrollLeft += workScrollSpeed * elapsed;
+
+                        if (workMarquee.scrollLeft >= loopWidth) {
+                            workMarquee.scrollLeft -= loopWidth;
+                        }
                     }
                 }
-                workPreviousTime = time;
+                previousWorkFrame = time;
             } else {
-                workPreviousTime = 0;
+                previousWorkFrame = 0;
             }
+
             requestAnimationFrame(animateWork);
         };
+
         requestAnimationFrame(animateWork);
 
+        // Same interaction behavior as Brands: hover pauses autoplay.
         workMarquee.addEventListener("mouseenter", pauseWorkAutoScroll);
-        workMarquee.addEventListener("mouseleave", () => resumeWorkAutoScroll(900));
+        workMarquee.addEventListener("mouseleave", () => resumeWorkAutoScroll());
 
+        // Mouse/touch drag.
         workMarquee.addEventListener("pointerdown", (event) => {
             pauseWorkAutoScroll();
+
             if (event.pointerType === "mouse" && event.button !== 0) return;
 
-            workDragging = true;
-            workDragStartX = event.clientX;
-            workDragStartScroll = workMarquee.scrollLeft;
+            isDraggingWork = true;
+            dragStartXWork = event.clientX;
+            dragStartScrollWork = workMarquee.scrollLeft;
             workMarquee.classList.add("is-dragging");
             workMarquee.setPointerCapture(event.pointerId);
         });
 
         workMarquee.addEventListener("pointermove", (event) => {
-            if (!workDragging) return;
-            workMarquee.scrollLeft = workDragStartScroll - (event.clientX - workDragStartX);
+            if (!isDraggingWork) return;
+            workMarquee.scrollLeft = dragStartScrollWork - (event.clientX - dragStartXWork);
         });
 
         const stopWorkDrag = () => {
-            if (!workDragging) return;
-            workDragging = false;
+            if (!isDraggingWork) return;
+
+            isDraggingWork = false;
             workMarquee.classList.remove("is-dragging");
             resumeWorkAutoScroll();
         };
@@ -781,6 +801,7 @@
         workMarquee.addEventListener("pointercancel", stopWorkDrag);
         workMarquee.addEventListener("lostpointercapture", stopWorkDrag);
 
+        // Mouse wheel controls horizontal scrolling, like Brands.
         workMarquee.addEventListener("wheel", (event) => {
             if (Math.abs(event.deltaY) > Math.abs(event.deltaX)) {
                 event.preventDefault();
