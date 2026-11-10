@@ -1327,6 +1327,18 @@ h1 em {
 }
 
 
+/* Prevent accidental page-wide horizontal overflow on small screens while preserving internal scrollers. */
+html, body {
+    max-width: 100%;
+    overflow-x: clip;
+}
+
+@supports not (overflow: clip) {
+    html, body {
+        overflow-x: hidden;
+    }
+}
+
 /* =========================
    CREATIVE TOOLKIT / TOOL WALL
 ========================= */
