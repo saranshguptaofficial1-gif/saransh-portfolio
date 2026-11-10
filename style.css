@@ -2429,3 +2429,67 @@ nav.site-nav a:not(.resume-nav):focus-visible::after {
         grid-row: 1;
     }
 }
+
+
+/* Final work-wall layout fix: keep every project in its own grid slot so cards never overlap. */
+.work-masonry-set {
+    display: grid;
+    grid-template-columns: repeat(4, max-content);
+    grid-template-rows: auto auto;
+    grid-auto-flow: row;
+    column-gap: 14px;
+    row-gap: 28px;
+    align-items: start;
+    width: max-content;
+    height: auto;
+    min-height: 0;
+}
+
+.work-video-card:nth-child(1),
+.work-video-card:nth-child(2),
+.work-video-card:nth-child(3),
+.work-video-card:nth-child(4),
+.work-video-card:nth-child(5),
+.work-video-card:nth-child(6),
+.work-video-card:nth-child(7),
+.work-video-card:nth-child(8) {
+    transform: none;
+}
+
+.work-video-card:nth-child(1) { grid-column: 1; grid-row: 1; }
+.work-video-card:nth-child(2) { grid-column: 2; grid-row: 1; }
+.work-video-card:nth-child(3) { grid-column: 3; grid-row: 1; }
+.work-video-card:nth-child(4) { grid-column: 4; grid-row: 1; }
+.work-video-card:nth-child(5) { grid-column: 1; grid-row: 2; }
+.work-video-card:nth-child(6) { grid-column: 2; grid-row: 2; }
+.work-video-card:nth-child(7) { grid-column: 3; grid-row: 2; }
+.work-video-card:nth-child(8) { grid-column: 4; grid-row: 2; }
+
+.work-video-card:hover,
+.work-video-card:nth-child(even):hover {
+    transform: translateY(-4px);
+}
+
+@media (max-width: 800px) {
+    .work-masonry-set {
+        grid-template-columns: repeat(4, max-content);
+        grid-template-rows: auto auto;
+        row-gap: 18px;
+        column-gap: 10px;
+        height: auto;
+    }
+
+    .work-video-card:nth-child(1) { grid-column: 1; grid-row: 1; }
+    .work-video-card:nth-child(2) { grid-column: 2; grid-row: 1; }
+    .work-video-card:nth-child(3) { grid-column: 3; grid-row: 1; }
+    .work-video-card:nth-child(4) { grid-column: 4; grid-row: 1; }
+    .work-video-card:nth-child(5) { grid-column: 1; grid-row: 2; }
+    .work-video-card:nth-child(6) { grid-column: 2; grid-row: 2; }
+    .work-video-card:nth-child(7) { grid-column: 3; grid-row: 2; }
+    .work-video-card:nth-child(8) { grid-column: 4; grid-row: 2; }
+
+    .work-video-card:hover,
+    .work-video-card:nth-child(even):hover {
+        transform: translateY(-3px);
+    }
+}
