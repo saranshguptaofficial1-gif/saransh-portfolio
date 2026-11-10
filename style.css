@@ -2025,7 +2025,7 @@ nav.site-nav a:not(.resume-nav):focus-visible::after {
 
 
 /* =========================
-   SELECTED WORK / HORIZONTAL MASONRY
+   SELECTED WORK / RESPONSIVE MASONRY
 ========================= */
 
 .work-video-marquee {
@@ -2043,20 +2043,25 @@ nav.site-nav a:not(.resume-nav):focus-visible::after {
 .work-video-track {
     display: flex;
     width: max-content;
-    animation: work-horizontal-scroll 28s linear 1;
+    animation: work-horizontal-scroll 34s linear 1;
     will-change: transform;
 }
 
 .work-masonry-set {
-    display: flex;
-    align-items: flex-start;
+    display: grid;
+    grid-template-columns: repeat(5, minmax(190px, 1fr));
+    grid-template-rows: 250px 250px;
     gap: 14px;
+    width: min(92vw, 1700px);
+    height: 514px;
     flex: 0 0 auto;
+    align-items: stretch;
 }
 
 .work-video-card {
     display: block;
-    width: clamp(260px, 27vw, 390px);
+    min-width: 0;
+    min-height: 0;
     position: relative;
     overflow: hidden;
     border: 1px solid #292C26;
@@ -2074,13 +2079,24 @@ nav.site-nav a:not(.resume-nav):focus-visible::after {
     transition: transform 0.5s ease, filter 0.5s ease;
 }
 
+/* True masonry rhythm: tall cards occupy both rows while shorter
+   cards fill the open row beside them. */
 .work-video-card-tall {
-    aspect-ratio: 9 / 16;
+    grid-row: span 2;
+    aspect-ratio: auto;
 }
 
 .work-video-card-short {
-    aspect-ratio: 4 / 5;
+    grid-row: span 1;
+    aspect-ratio: auto;
 }
+
+/* Keep the fifth project tall so the gallery finishes on a strong vertical card. */
+.work-video-card:nth-child(1) { grid-column: 1; }
+.work-video-card:nth-child(2) { grid-column: 2; }
+.work-video-card:nth-child(3) { grid-column: 3; }
+.work-video-card:nth-child(4) { grid-column: 4; }
+.work-video-card:nth-child(5) { grid-column: 5; }
 
 .work-video-card::after {
     content: "";
@@ -2157,15 +2173,29 @@ nav.site-nav a:not(.resume-nav):focus-visible::after {
     }
 
     .work-video-track {
-        animation-duration: 22s;
+        animation-duration: 26s;
     }
 
     .work-masonry-set {
+        grid-template-columns: repeat(2, 145px);
+        grid-template-rows: 170px 170px;
         gap: 10px;
+        width: 300px;
+        height: 350px;
     }
 
-    .work-video-card {
-        width: 180px;
+    .work-video-card:nth-child(1) { grid-column: 1; }
+    .work-video-card:nth-child(2) { grid-column: 2; }
+    .work-video-card:nth-child(3) { grid-column: 1; }
+    .work-video-card:nth-child(4) { grid-column: 2; }
+    .work-video-card:nth-child(5) {
+        grid-column: 2;
+        grid-row: 2;
+        transform: translateY(180px);
+    }
+
+    .work-video-card:nth-child(5):hover {
+        transform: translateY(176px);
     }
 
     .work-play {
@@ -2176,4 +2206,3 @@ nav.site-nav a:not(.resume-nav):focus-visible::after {
         font-size: 10px;
     }
 }
-
