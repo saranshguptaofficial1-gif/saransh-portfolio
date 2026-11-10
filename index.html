@@ -795,35 +795,60 @@
         workMarquee.addEventListener("mouseenter", pauseWorkAutoScroll);
         workMarquee.addEventListener("mouseleave", () => resumeWorkAutoScroll());
 
-        // Mouse/touch drag.
+        // Mouse/touch drag without swallowing normal thumbnail clicks.
+        let workPointerDownX = 0;
+        let workPointerMoved = false;
+
         workMarquee.addEventListener("pointerdown", (event) => {
             pauseWorkAutoScroll();
 
             if (event.pointerType === "mouse" && event.button !== 0) return;
 
-            isDraggingWork = true;
+            workPointerDownX = event.clientX;
+            workPointerMoved = false;
+            isDraggingWork = false;
             dragStartXWork = event.clientX;
             dragStartScrollWork = workMarquee.scrollLeft;
-            workMarquee.classList.add("is-dragging");
-            workMarquee.setPointerCapture(event.pointerId);
         });
 
         workMarquee.addEventListener("pointermove", (event) => {
-            if (!isDraggingWork) return;
-            workMarquee.scrollLeft = dragStartScrollWork - (event.clientX - dragStartXWork);
+            if (event.pointerType === "mouse" && !(event.buttons & 1)) return;
+
+            if (Math.abs(event.clientX - workPointerDownX) > 6) {
+                workPointerMoved = true;
+                if (!isDraggingWork) {
+                    isDraggingWork = true;
+                    workMarquee.classList.add("is-dragging");
+                    try { workMarquee.setPointerCapture(event.pointerId); } catch (_) {}
+                }
+            }
+
+            if (isDraggingWork) {
+                workMarquee.scrollLeft = dragStartScrollWork - (event.clientX - dragStartXWork);
+            }
         });
 
-        const stopWorkDrag = () => {
-            if (!isDraggingWork) return;
-
-            isDraggingWork = false;
-            workMarquee.classList.remove("is-dragging");
+        const stopWorkDrag = (event) => {
+            if (isDraggingWork) {
+                isDraggingWork = false;
+                workMarquee.classList.remove("is-dragging");
+            }
             resumeWorkAutoScroll();
         };
 
         workMarquee.addEventListener("pointerup", stopWorkDrag);
         workMarquee.addEventListener("pointercancel", stopWorkDrag);
         workMarquee.addEventListener("lostpointercapture", stopWorkDrag);
+
+        // Prevent navigation only when the user actually dragged the carousel.
+        workMarquee.querySelectorAll(".work-video-card").forEach((card) => {
+            card.addEventListener("click", (event) => {
+                if (workPointerMoved) {
+                    event.preventDefault();
+                    event.stopPropagation();
+                }
+            });
+        });
 
         // Mouse wheel controls horizontal scrolling, like Brands.
         workMarquee.addEventListener("wheel", (event) => {
