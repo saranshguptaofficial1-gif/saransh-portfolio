@@ -2405,3 +2405,27 @@ nav.site-nav a:not(.resume-nav):focus-visible::after {
         font-size: 10px;
     }
 }
+
+
+/* Seven-project work wall: place the new talking-head edit into a fourth masonry column. */
+@media (min-width: 801px) {
+    .work-masonry-set {
+        grid-template-columns: repeat(4, max-content);
+    }
+
+    .work-video-card:nth-child(7) {
+        grid-column: 4;
+        grid-row: 1;
+    }
+}
+
+@media (max-width: 800px) {
+    .work-masonry-set {
+        grid-template-columns: repeat(4, max-content);
+    }
+
+    .work-video-card:nth-child(7) {
+        grid-column: 4;
+        grid-row: 1;
+    }
+}
