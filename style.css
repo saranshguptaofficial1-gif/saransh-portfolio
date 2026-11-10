@@ -2044,7 +2044,7 @@ nav.site-nav a:not(.resume-nav):focus-visible::after {
     display: flex;
     width: max-content;
     gap: 14px;
-    animation: work-horizontal-scroll 42s linear infinite;
+    animation: work-horizontal-scroll 24s linear infinite;
     will-change: transform;
 }
 
@@ -2155,7 +2155,7 @@ nav.site-nav a:not(.resume-nav):focus-visible::after {
         transform: translateX(0);
     }
     to {
-        transform: translateX(calc(-50% - 7px));
+        transform: translateX(-100%);
     }
 }
 
