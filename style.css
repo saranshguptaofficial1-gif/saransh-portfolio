@@ -2044,7 +2044,7 @@ nav.site-nav a:not(.resume-nav):focus-visible::after {
     display: flex;
     width: max-content;
     gap: 14px;
-    animation: work-horizontal-scroll 24s linear infinite;
+    animation: work-horizontal-scroll 24s linear 1;
     will-change: transform;
 }
 
@@ -2155,7 +2155,7 @@ nav.site-nav a:not(.resume-nav):focus-visible::after {
         transform: translateX(0);
     }
     to {
-        transform: translateX(-100%);
+        transform: translateX(calc(-100% + 100vw));
     }
 }
 
@@ -2177,7 +2177,7 @@ nav.site-nav a:not(.resume-nav):focus-visible::after {
 
     .work-video-track {
         gap: 10px;
-        animation-duration: 34s;
+        animation-duration: 28s;
     }
 
     .work-masonry-set {
