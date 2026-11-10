@@ -751,7 +751,7 @@
         // its hard end before the loop can wrap. This makes the marquee run forever.
         if (originalWorkSet) {
             let workSets = workTrack.querySelectorAll(".work-masonry-set");
-            while (workSets.length < 3) {
+            while (workSets.length < 5) {
                 const workClone = originalWorkSet.cloneNode(true);
                 workClone.classList.add("work-masonry-clone");
                 workTrack.appendChild(workClone);
@@ -793,8 +793,11 @@
                     if (loopWidth > 0) {
                         workMarquee.scrollLeft += workScrollSpeed * elapsed;
 
+                        // Wrap back by exactly one project-set width. Using a modulo
+                        // fallback prevents the browser's native scroll limit from
+                        // ever leaving the marquee parked at the end.
                         if (workMarquee.scrollLeft >= loopWidth) {
-                            workMarquee.scrollLeft -= loopWidth;
+                            workMarquee.scrollLeft = workMarquee.scrollLeft % loopWidth;
                         }
                     }
                 }
