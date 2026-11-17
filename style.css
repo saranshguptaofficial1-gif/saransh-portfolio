@@ -2466,7 +2466,8 @@ nav.site-nav a:not(.resume-nav):focus-visible::after {
 .work-video-card:nth-child(6) { grid-column: 1; grid-row: 2; }
 .work-video-card:nth-child(7) { grid-column: 2; grid-row: 2; }
 .work-video-card:nth-child(8) { grid-column: 3; grid-row: 2; }
-.work-video-card:nth-child(9) { grid-column: 4 / span 2; grid-row: 2; }
+.work-video-card:nth-child(9) { grid-column: 4; grid-row: 2; }
+.work-video-card:nth-child(10) { grid-column: 5; grid-row: 2; }
 
 .work-video-card:hover,
 .work-video-card:nth-child(even):hover {
