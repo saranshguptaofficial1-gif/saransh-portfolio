@@ -2434,7 +2434,7 @@ nav.site-nav a:not(.resume-nav):focus-visible::after {
 /* Final work-wall layout fix: keep every project in its own grid slot so cards never overlap. */
 .work-masonry-set {
     display: grid;
-    grid-template-columns: repeat(5, max-content);
+    grid-template-columns: repeat(6, max-content);
     grid-template-rows: auto auto;
     grid-auto-flow: row;
     column-gap: 14px;
@@ -2468,7 +2468,7 @@ nav.site-nav a:not(.resume-nav):focus-visible::after {
 .work-video-card:nth-child(8) { grid-column: 3; grid-row: 2; }
 .work-video-card:nth-child(9) { grid-column: 4; grid-row: 2; }
 .work-video-card:nth-child(10) { grid-column: 5; grid-row: 2; }
-.work-video-card:nth-child(11) { grid-column: 1; grid-row: 3; }
+.work-video-card:nth-child(11) { grid-column: 6; grid-row: 2; }
 
 .work-video-card:hover,
 .work-video-card:nth-child(even):hover {
@@ -2477,7 +2477,7 @@ nav.site-nav a:not(.resume-nav):focus-visible::after {
 
 @media (max-width: 800px) {
     .work-masonry-set {
-        grid-template-columns: repeat(5, max-content);
+        grid-template-columns: repeat(6, max-content);
         grid-template-rows: auto auto;
         row-gap: 18px;
         column-gap: 10px;
@@ -2492,7 +2492,9 @@ nav.site-nav a:not(.resume-nav):focus-visible::after {
     .work-video-card:nth-child(6) { grid-column: 1; grid-row: 2; }
     .work-video-card:nth-child(7) { grid-column: 2; grid-row: 2; }
     .work-video-card:nth-child(8) { grid-column: 3; grid-row: 2; }
-    .work-video-card:nth-child(9) { grid-column: 4 / span 2; grid-row: 2; }
+    .work-video-card:nth-child(9) { grid-column: 4; grid-row: 2; }
+    .work-video-card:nth-child(10) { grid-column: 5; grid-row: 2; }
+    .work-video-card:nth-child(11) { grid-column: 6; grid-row: 2; }
 
     .work-video-card:hover,
     .work-video-card:nth-child(even):hover {
