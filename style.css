@@ -2476,11 +2476,26 @@ nav.site-nav a:not(.resume-nav):focus-visible::after {
 }
 
 @media (max-width: 800px) {
+    .work-video-marquee {
+        overflow-x: auto;
+        overflow-y: hidden;
+        -webkit-overflow-scrolling: touch;
+        overscroll-behavior-x: contain;
+    }
+
+    .work-video-track {
+        width: max-content;
+        min-width: max-content;
+    }
+
+    /* All 11 projects stay in exactly two rows; the remaining columns scroll horizontally. */
     .work-masonry-set {
-        grid-template-columns: repeat(6, max-content);
+        grid-template-columns: repeat(6, 150px);
         grid-template-rows: auto auto;
         row-gap: 18px;
         column-gap: 10px;
+        width: max-content;
+        min-width: max-content;
         height: auto;
     }
 
